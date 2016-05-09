@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -35,62 +35,63 @@ class HstsPreload
      * @Type("integer")
      */
     private $sourceTime;
-
-
     /**
-     * source name
+     * source name.
      */
     public function getSource()
     {
         return $this->source;
     }
-    
+
     public function setSource($source)
     {
         $this->source = $source;
+
         return $this;
     }
 
     /**
-     * preload status:
+     * preload status:.
      */
     public function getStatus()
     {
         return $this->status;
     }
-    
+
     public function setStatus($status)
     {
         $this->status = $status;
+
         return $this;
     }
 
     /**
-     * error message, when status is "error"
+     * error message, when status is "error".
      */
     public function getError()
     {
         return $this->error;
     }
-    
+
     public function setError($error)
     {
         $this->error = $error;
+
         return $this;
     }
 
     /**
-     * time, as a Unix timestamp, when the preload database was retrieved
+     * time, as a Unix timestamp, when the preload database was retrieved.
      */
     public function getSourceTime()
     {
         return $this->sourceTime;
     }
-    
+
     public function setSourceTime($sourceTime)
     {
         $this->sourceTime = $sourceTime;
+
         return $this;
     }
-
 }

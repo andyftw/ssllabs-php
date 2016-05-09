@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -49,33 +49,33 @@ class Info
      * @Type("array<string>")
      */
     private $messages;
-
-
     /**
-     * SSL Labs software version as a string (e.g., "1.11.14")
+     * SSL Labs software version as a string (e.g., "1.11.14").
      */
     public function getEngineVersion()
     {
         return $this->engineVersion;
     }
-    
+
     public function setEngineVersion($engineVersion)
     {
         $this->engineVersion = $engineVersion;
+
         return $this;
     }
 
     /**
-     * rating criteria version as a string (e.g., "2009f")
+     * rating criteria version as a string (e.g., "2009f").
      */
     public function getCriteriaVersion()
     {
         return $this->criteriaVersion;
     }
-    
+
     public function setCriteriaVersion($criteriaVersion)
     {
         $this->criteriaVersion = $criteriaVersion;
+
         return $this;
     }
 
@@ -86,10 +86,11 @@ class Info
     {
         return $this->maxAssessments;
     }
-    
+
     public function setMaxAssessments($maxAssessments)
     {
         $this->maxAssessments = $maxAssessments;
+
         return $this;
     }
 
@@ -100,10 +101,11 @@ class Info
     {
         return $this->currentAssessments;
     }
-    
+
     public function setCurrentAssessments($currentAssessments)
     {
         $this->currentAssessments = $currentAssessments;
+
         return $this;
     }
 
@@ -115,10 +117,11 @@ class Info
     {
         return $this->newAssessmentCoolOff;
     }
-    
+
     public function setNewAssessmentCoolOff($newAssessmentCoolOff)
     {
         $this->newAssessmentCoolOff = $newAssessmentCoolOff;
+
         return $this;
     }
 
@@ -129,11 +132,11 @@ class Info
     {
         return $this->messages;
     }
-    
+
     public function setMessages($messages)
     {
         $this->messages = $messages;
+
         return $this;
     }
-
 }

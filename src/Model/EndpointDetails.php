@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -301,75 +301,78 @@ class EndpointDetails
      * @Type("Andyftw\SSLLabs\Model\HpkpPolicy")
      */
     private $hpkpRoPolicy;
-
-
     /**
-     * [key information](#key)
+     * [key information](#key).
      */
     public function getKey()
     {
         return $this->key;
     }
-    
+
     public function setKey($key)
     {
         $this->key = $key;
+
         return $this;
     }
 
     /**
-     * [certificate information](#cert)
+     * [certificate information](#cert).
      */
     public function getCert()
     {
         return $this->cert;
     }
-    
+
     public function setCert($cert)
     {
         $this->cert = $cert;
+
         return $this;
     }
 
     /**
-     * [chain information](#chain)
+     * [chain information](#chain).
      */
     public function getChain()
     {
         return $this->chain;
     }
-    
+
     public function setChain($chain)
     {
         $this->chain = $chain;
+
         return $this;
     }
 
     /**
-     * supported [protocols](#protocol)
+     * supported [protocols](#protocol).
      */
     public function getProtocols()
     {
         return $this->protocols;
     }
-    
+
     public function setProtocols($protocols)
     {
         $this->protocols = $protocols;
+
         return $this;
     }
 
     /**
-     * supported [cipher suites](#suites)
+     * supported [cipher suites](#suites).
      */
     public function getSuites()
     {
         return $this->suites;
     }
-    
+
     public function setSuites($suites)
     {
         $this->suites = $suites;
+
         return $this;
     }
 
@@ -381,136 +384,146 @@ class EndpointDetails
     {
         return $this->serverSignature;
     }
-    
+
     public function setServerSignature($serverSignature)
     {
         $this->serverSignature = $serverSignature;
+
         return $this;
     }
 
     /**
-     * true if this endpoint is reachable via a hostname with the www prefix
+     * true if this endpoint is reachable via a hostname with the www prefix.
      */
     public function getPrefixDelegation()
     {
         return $this->prefixDelegation;
     }
-    
+
     public function setPrefixDelegation($prefixDelegation)
     {
         $this->prefixDelegation = $prefixDelegation;
+
         return $this;
     }
 
     /**
-     * true if the endpoint is vulnerable to the BEAST attack
+     * true if the endpoint is vulnerable to the BEAST attack.
      */
     public function getVulnBeast()
     {
         return $this->vulnBeast;
     }
-    
+
     public function setVulnBeast($vulnBeast)
     {
         $this->vulnBeast = $vulnBeast;
+
         return $this;
     }
 
     /**
-     * this is an integer value that describes the endpoint support for renegotiation:
+     * this is an integer value that describes the endpoint support for renegotiation:.
      */
     public function getRenegSupport()
     {
         return $this->renegSupport;
     }
-    
+
     public function setRenegSupport($renegSupport)
     {
         $this->renegSupport = $renegSupport;
+
         return $this;
     }
 
     /**
-     * this is an integer value that describes endpoint support for session resumption. The possible values are:
+     * this is an integer value that describes endpoint support for session resumption. The possible values are:.
      */
     public function getSessionResumption()
     {
         return $this->sessionResumption;
     }
-    
+
     public function setSessionResumption($sessionResumption)
     {
         $this->sessionResumption = $sessionResumption;
+
         return $this;
     }
 
     /**
-     * integer value that describes supported compression methods
+     * integer value that describes supported compression methods.
      */
     public function getCompressionMethods()
     {
         return $this->compressionMethods;
     }
-    
+
     public function setCompressionMethods($compressionMethods)
     {
         $this->compressionMethods = $compressionMethods;
+
         return $this;
     }
 
     /**
-     * true if the server supports NPN
+     * true if the server supports NPN.
      */
     public function getSupportsNpn()
     {
         return $this->supportsNpn;
     }
-    
+
     public function setSupportsNpn($supportsNpn)
     {
         $this->supportsNpn = $supportsNpn;
+
         return $this;
     }
 
     /**
-     * space separated list of supported protocols
+     * space separated list of supported protocols.
      */
     public function getNpnProtocols()
     {
         return $this->npnProtocols;
     }
-    
+
     public function setNpnProtocols($npnProtocols)
     {
         $this->npnProtocols = $npnProtocols;
+
         return $this;
     }
 
     /**
-     * indicates support for Session Tickets
+     * indicates support for Session Tickets.
      */
     public function getSessionTickets()
     {
         return $this->sessionTickets;
     }
-    
+
     public function setSessionTickets($sessionTickets)
     {
         $this->sessionTickets = $sessionTickets;
+
         return $this;
     }
 
     /**
-     * true if OCSP stapling is deployed on the server
+     * true if OCSP stapling is deployed on the server.
      */
     public function getOcspStapling()
     {
         return $this->ocspStapling;
     }
-    
+
     public function setOcspStapling($ocspStapling)
     {
         $this->ocspStapling = $ocspStapling;
+
         return $this;
     }
 
@@ -521,10 +534,11 @@ class EndpointDetails
     {
         return $this->staplingRevocationStatus;
     }
-    
+
     public function setStaplingRevocationStatus($staplingRevocationStatus)
     {
         $this->staplingRevocationStatus = $staplingRevocationStatus;
+
         return $this;
     }
 
@@ -535,10 +549,11 @@ class EndpointDetails
     {
         return $this->staplingRevocationErrorMessage;
     }
-    
+
     public function setStaplingRevocationErrorMessage($staplingRevocationErrorMessage)
     {
         $this->staplingRevocationErrorMessage = $staplingRevocationErrorMessage;
+
         return $this;
     }
 
@@ -549,10 +564,11 @@ class EndpointDetails
     {
         return $this->sniRequired;
     }
-    
+
     public function setSniRequired($sniRequired)
     {
         $this->sniRequired = $sniRequired;
+
         return $this;
     }
 
@@ -564,10 +580,11 @@ class EndpointDetails
     {
         return $this->httpStatusCode;
     }
-    
+
     public function setHttpStatusCode($httpStatusCode)
     {
         $this->httpStatusCode = $httpStatusCode;
+
         return $this;
     }
 
@@ -578,10 +595,11 @@ class EndpointDetails
     {
         return $this->httpForwarding;
     }
-    
+
     public function setHttpForwarding($httpForwarding)
     {
         $this->httpForwarding = $httpForwarding;
+
         return $this;
     }
 
@@ -592,10 +610,11 @@ class EndpointDetails
     {
         return $this->supportsRc4;
     }
-    
+
     public function setSupportsRc4($supportsRc4)
     {
         $this->supportsRc4 = $supportsRc4;
+
         return $this;
     }
 
@@ -606,10 +625,11 @@ class EndpointDetails
     {
         return $this->rc4WithModern;
     }
-    
+
     public function setRc4WithModern($rc4WithModern)
     {
         $this->rc4WithModern = $rc4WithModern;
+
         return $this;
     }
 
@@ -620,24 +640,26 @@ class EndpointDetails
     {
         return $this->rc4Only;
     }
-    
+
     public function setRc4Only($rc4Only)
     {
         $this->rc4Only = $rc4Only;
+
         return $this;
     }
 
     /**
-     * indicates support for Forward Secrecy
+     * indicates support for Forward Secrecy.
      */
     public function getForwardSecrecy()
     {
         return $this->forwardSecrecy;
     }
-    
+
     public function setForwardSecrecy($forwardSecrecy)
     {
         $this->forwardSecrecy = $forwardSecrecy;
+
         return $this;
     }
 
@@ -648,10 +670,11 @@ class EndpointDetails
     {
         return $this->sims;
     }
-    
+
     public function setSims($sims)
     {
         $this->sims = $sims;
+
         return $this;
     }
 
@@ -662,10 +685,11 @@ class EndpointDetails
     {
         return $this->heartbleed;
     }
-    
+
     public function setHeartbleed($heartbleed)
     {
         $this->heartbleed = $heartbleed;
+
         return $this;
     }
 
@@ -676,52 +700,56 @@ class EndpointDetails
     {
         return $this->heartbeat;
     }
-    
+
     public function setHeartbeat($heartbeat)
     {
         $this->heartbeat = $heartbeat;
+
         return $this;
     }
 
     /**
-     * results of the CVE-2014-0224 test:
+     * results of the CVE-2014-0224 test:.
      */
     public function getOpenSslCcs()
     {
         return $this->openSslCcs;
     }
-    
+
     public function setOpenSslCcs($openSslCcs)
     {
         $this->openSslCcs = $openSslCcs;
+
         return $this;
     }
 
     /**
-     * true if the endpoint is vulnerable to POODLE; false otherwise
+     * true if the endpoint is vulnerable to POODLE; false otherwise.
      */
     public function getPoodle()
     {
         return $this->poodle;
     }
-    
+
     public function setPoodle($poodle)
     {
         $this->poodle = $poodle;
+
         return $this;
     }
 
     /**
-     * results of the POODLE TLS test:
+     * results of the POODLE TLS test:.
      */
     public function getPoodleTls()
     {
         return $this->poodleTls;
     }
-    
+
     public function setPoodleTls($poodleTls)
     {
         $this->poodleTls = $poodleTls;
+
         return $this;
     }
 
@@ -733,10 +761,11 @@ class EndpointDetails
     {
         return $this->fallbackScsv;
     }
-    
+
     public function setFallbackScsv($fallbackScsv)
     {
         $this->fallbackScsv = $fallbackScsv;
+
         return $this;
     }
 
@@ -747,24 +776,26 @@ class EndpointDetails
     {
         return $this->freak;
     }
-    
+
     public function setFreak($freak)
     {
         $this->freak = $freak;
+
         return $this;
     }
 
     /**
-     * information about the availability of certificate transparency information (embedded SCTs):
+     * information about the availability of certificate transparency information (embedded SCTs):.
      */
     public function getHasSct()
     {
         return $this->hasSct;
     }
-    
+
     public function setHasSct($hasSct)
     {
         $this->hasSct = $hasSct;
+
         return $this;
     }
 
@@ -775,24 +806,26 @@ class EndpointDetails
     {
         return $this->dhPrimes;
     }
-    
+
     public function setDhPrimes($dhPrimes)
     {
         $this->dhPrimes = $dhPrimes;
+
         return $this;
     }
 
     /**
-     * whether the server uses known DH primes. Not present if the server doesn't support the DH key exchange. Possible values:
+     * whether the server uses known DH primes. Not present if the server doesn't support the DH key exchange. Possible values:.
      */
     public function getDhUsesKnownPrimes()
     {
         return $this->dhUsesKnownPrimes;
     }
-    
+
     public function setDhUsesKnownPrimes($dhUsesKnownPrimes)
     {
         $this->dhUsesKnownPrimes = $dhUsesKnownPrimes;
+
         return $this;
     }
 
@@ -803,10 +836,11 @@ class EndpointDetails
     {
         return $this->dhYsReuse;
     }
-    
+
     public function setDhYsReuse($dhYsReuse)
     {
         $this->dhYsReuse = $dhYsReuse;
+
         return $this;
     }
 
@@ -817,10 +851,11 @@ class EndpointDetails
     {
         return $this->logjam;
     }
-    
+
     public function setLogjam($logjam)
     {
         $this->logjam = $logjam;
+
         return $this;
     }
 
@@ -831,10 +866,11 @@ class EndpointDetails
     {
         return $this->chaCha20Preference;
     }
-    
+
     public function setChaCha20Preference($chaCha20Preference)
     {
         $this->chaCha20Preference = $chaCha20Preference;
+
         return $this;
     }
 
@@ -845,10 +881,11 @@ class EndpointDetails
     {
         return $this->hstsPolicy;
     }
-    
+
     public function setHstsPolicy($hstsPolicy)
     {
         $this->hstsPolicy = $hstsPolicy;
+
         return $this;
     }
 
@@ -859,10 +896,11 @@ class EndpointDetails
     {
         return $this->hstsPreloads;
     }
-    
+
     public function setHstsPreloads($hstsPreloads)
     {
         $this->hstsPreloads = $hstsPreloads;
+
         return $this;
     }
 
@@ -873,10 +911,11 @@ class EndpointDetails
     {
         return $this->hpkpPolicy;
     }
-    
+
     public function setHpkpPolicy($hpkpPolicy)
     {
         $this->hpkpPolicy = $hpkpPolicy;
+
         return $this;
     }
 
@@ -887,11 +926,11 @@ class EndpointDetails
     {
         return $this->hpkpRoPolicy;
     }
-    
+
     public function setHpkpRoPolicy($hpkpRoPolicy)
     {
         $this->hpkpRoPolicy = $hpkpRoPolicy;
+
         return $this;
     }
-
 }

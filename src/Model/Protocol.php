@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -42,19 +42,18 @@ class Protocol
      * @Type("integer")
      */
     private $q;
-
-
     /**
-     * protocol version number, e.g. 0x0303 for TLS 1.2
+     * protocol version number, e.g. 0x0303 for TLS 1.2.
      */
     public function getId()
     {
         return $this->id;
     }
-    
+
     public function setId($id)
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -65,24 +64,26 @@ class Protocol
     {
         return $this->name;
     }
-    
+
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
     /**
-     * protocol version, e.g. 1.2 (for TLS)
+     * protocol version, e.g. 1.2 (for TLS).
      */
     public function getVersion()
     {
         return $this->version;
     }
-    
+
     public function setVersion($version)
     {
         $this->version = $version;
+
         return $this;
     }
 
@@ -93,25 +94,26 @@ class Protocol
     {
         return $this->v2SuitesDisabled;
     }
-    
+
     public function setV2SuitesDisabled($v2SuitesDisabled)
     {
         $this->v2SuitesDisabled = $v2SuitesDisabled;
+
         return $this;
     }
 
     /**
-     * 0 if the protocol is insecure, null otherwise
+     * 0 if the protocol is insecure, null otherwise.
      */
     public function getQ()
     {
         return $this->q;
     }
-    
+
     public function setQ($q)
     {
         $this->q = $q;
+
         return $this;
     }
-
 }

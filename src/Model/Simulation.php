@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -42,8 +42,6 @@ class Simulation
      * @Type("integer")
      */
     private $suiteId;
-
-
     /**
      * instance of [SimClient](#simclient).
      */
@@ -51,10 +49,11 @@ class Simulation
     {
         return $this->client;
     }
-    
+
     public function setClient($client)
     {
         $this->client = $client;
+
         return $this;
     }
 
@@ -65,10 +64,11 @@ class Simulation
     {
         return $this->errorCode;
     }
-    
+
     public function setErrorCode($errorCode)
     {
         $this->errorCode = $errorCode;
+
         return $this;
     }
 
@@ -79,10 +79,11 @@ class Simulation
     {
         return $this->attempts;
     }
-    
+
     public function setAttempts($attempts)
     {
         $this->attempts = $attempts;
+
         return $this;
     }
 
@@ -93,10 +94,11 @@ class Simulation
     {
         return $this->protocolId;
     }
-    
+
     public function setProtocolId($protocolId)
     {
         $this->protocolId = $protocolId;
+
         return $this;
     }
 
@@ -107,11 +109,11 @@ class Simulation
     {
         return $this->suiteId;
     }
-    
+
     public function setSuiteId($suiteId)
     {
         $this->suiteId = $suiteId;
+
         return $this;
     }
-
 }

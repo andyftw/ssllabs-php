@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -133,173 +133,183 @@ class Cert
      * @Type("boolean")
      */
     private $sct;
-
-
     /**
-     * certificate subject
+     * certificate subject.
      */
     public function getSubject()
     {
         return $this->subject;
     }
-    
+
     public function setSubject($subject)
     {
         $this->subject = $subject;
+
         return $this;
     }
 
     /**
-     * common names extracted from the subject
+     * common names extracted from the subject.
      */
     public function getCommonNames()
     {
         return $this->commonNames;
     }
-    
+
     public function setCommonNames($commonNames)
     {
         $this->commonNames = $commonNames;
+
         return $this;
     }
 
     /**
-     * alternative names
+     * alternative names.
      */
     public function getAltNames()
     {
         return $this->altNames;
     }
-    
+
     public function setAltNames($altNames)
     {
         $this->altNames = $altNames;
+
         return $this;
     }
 
     /**
-     * timestamp before which the certificate is not valid
+     * timestamp before which the certificate is not valid.
      */
     public function getNotBefore()
     {
         return $this->notBefore;
     }
-    
+
     public function setNotBefore($notBefore)
     {
         $this->notBefore = $notBefore;
+
         return $this;
     }
 
     /**
-     * timestamp after which the certificate is not valid
+     * timestamp after which the certificate is not valid.
      */
     public function getNotAfter()
     {
         return $this->notAfter;
     }
-    
+
     public function setNotAfter($notAfter)
     {
         $this->notAfter = $notAfter;
+
         return $this;
     }
 
     /**
-     * issuer subject
+     * issuer subject.
      */
     public function getIssuerSubject()
     {
         return $this->issuerSubject;
     }
-    
+
     public function setIssuerSubject($issuerSubject)
     {
         $this->issuerSubject = $issuerSubject;
+
         return $this;
     }
 
     /**
-     * certificate signature algorithm
+     * certificate signature algorithm.
      */
     public function getSigAlg()
     {
         return $this->sigAlg;
     }
-    
+
     public function setSigAlg($sigAlg)
     {
         $this->sigAlg = $sigAlg;
+
         return $this;
     }
 
     /**
-     * issuer name
+     * issuer name.
      */
     public function getIssuerLabel()
     {
         return $this->issuerLabel;
     }
-    
+
     public function setIssuerLabel($issuerLabel)
     {
         $this->issuerLabel = $issuerLabel;
+
         return $this;
     }
 
     /**
-     * a number that represents revocation information present in the certificate:
+     * a number that represents revocation information present in the certificate:.
      */
     public function getRevocationInfo()
     {
         return $this->revocationInfo;
     }
-    
+
     public function setRevocationInfo($revocationInfo)
     {
         $this->revocationInfo = $revocationInfo;
+
         return $this;
     }
 
     /**
-     * CRL URIs extracted from the certificate
+     * CRL URIs extracted from the certificate.
      */
     public function getCrlURIs()
     {
         return $this->crlURIs;
     }
-    
+
     public function setCrlURIs($crlURIs)
     {
         $this->crlURIs = $crlURIs;
+
         return $this;
     }
 
     /**
-     * OCSP URIs extracted from the certificate
+     * OCSP URIs extracted from the certificate.
      */
     public function getOcspURIs()
     {
         return $this->ocspURIs;
     }
-    
+
     public function setOcspURIs($ocspURIs)
     {
         $this->ocspURIs = $ocspURIs;
+
         return $this;
     }
 
     /**
-     * a number that describes the revocation status of the certificate:
+     * a number that describes the revocation status of the certificate:.
      */
     public function getRevocationStatus()
     {
         return $this->revocationStatus;
     }
-    
+
     public function setRevocationStatus($revocationStatus)
     {
         $this->revocationStatus = $revocationStatus;
+
         return $this;
     }
 
@@ -310,10 +320,11 @@ class Cert
     {
         return $this->crlRevocationStatus;
     }
-    
+
     public function setCrlRevocationStatus($crlRevocationStatus)
     {
         $this->crlRevocationStatus = $crlRevocationStatus;
+
         return $this;
     }
 
@@ -324,52 +335,56 @@ class Cert
     {
         return $this->ocspRevocationStatus;
     }
-    
+
     public function setOcspRevocationStatus($ocspRevocationStatus)
     {
         $this->ocspRevocationStatus = $ocspRevocationStatus;
+
         return $this;
     }
 
     /**
-     * Server Gated Cryptography support; integer:
+     * Server Gated Cryptography support; integer:.
      */
     public function getSgc()
     {
         return $this->sgc;
     }
-    
+
     public function setSgc($sgc)
     {
         $this->sgc = $sgc;
+
         return $this;
     }
 
     /**
-     * E for Extended Validation certificates; may be null if unable to determine
+     * E for Extended Validation certificates; may be null if unable to determine.
      */
     public function getValidationType()
     {
         return $this->validationType;
     }
-    
+
     public function setValidationType($validationType)
     {
         $this->validationType = $validationType;
+
         return $this;
     }
 
     /**
-     * list of certificate issues, one bit per issue:
+     * list of certificate issues, one bit per issue:.
      */
     public function getIssues()
     {
         return $this->issues;
     }
-    
+
     public function setIssues($issues)
     {
         $this->issues = $issues;
+
         return $this;
     }
 
@@ -380,11 +395,11 @@ class Cert
     {
         return $this->sct;
     }
-    
+
     public function setSct($sct)
     {
         $this->sct = $sct;
+
         return $this;
     }
-
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -42,19 +42,18 @@ class SimClient
      * @Type("boolean")
      */
     private $isReference;
-
-
     /**
-     * unique client ID (integer)
+     * unique client ID (integer).
      */
     public function getId()
     {
         return $this->id;
     }
-    
+
     public function setId($id)
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -65,10 +64,11 @@ class SimClient
     {
         return $this->name;
     }
-    
+
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -79,10 +79,11 @@ class SimClient
     {
         return $this->platform;
     }
-    
+
     public function setPlatform($platform)
     {
         $this->platform = $platform;
+
         return $this;
     }
 
@@ -93,10 +94,11 @@ class SimClient
     {
         return $this->version;
     }
-    
+
     public function setVersion($version)
     {
         $this->version = $version;
+
         return $this;
     }
 
@@ -110,11 +112,11 @@ class SimClient
     {
         return $this->isReference;
     }
-    
+
     public function setIsReference($isReference)
     {
         $this->isReference = $isReference;
+
         return $this;
     }
-
 }

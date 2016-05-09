@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -56,105 +56,109 @@ class HstsPolicy
      * @Type("array<string, string>")
      */
     private $directives;
-
-
     /**
-     * the contents of the HSTS response header, if present
+     * the contents of the HSTS response header, if present.
      */
     public function getHeader()
     {
         return $this->header;
     }
-    
+
     public function setHeader($header)
     {
         $this->header = $header;
+
         return $this;
     }
 
     /**
-     * HSTS status:
+     * HSTS status:.
      */
     public function getStatus()
     {
         return $this->status;
     }
-    
+
     public function setStatus($status)
     {
         $this->status = $status;
+
         return $this;
     }
 
     /**
-     * error message when error is encountered, null otherwise
+     * error message when error is encountered, null otherwise.
      */
     public function getError()
     {
         return $this->error;
     }
-    
+
     public function setError($error)
     {
         $this->error = $error;
+
         return $this;
     }
 
     /**
      * the max-age value specified in the policy; null if policy is missing or invalid or on parsing error; the maximum value currently supported
-     * is 9223372036854775807
+     * is 9223372036854775807.
      */
     public function getMaxAge()
     {
         return $this->maxAge;
     }
-    
+
     public function setMaxAge($maxAge)
     {
         $this->maxAge = $maxAge;
+
         return $this;
     }
 
     /**
-     * true if the includeSubDomains directive is set; null otherwise
+     * true if the includeSubDomains directive is set; null otherwise.
      */
     public function getIncludeSubDomains()
     {
         return $this->includeSubDomains;
     }
-    
+
     public function setIncludeSubDomains($includeSubDomains)
     {
         $this->includeSubDomains = $includeSubDomains;
+
         return $this;
     }
 
     /**
-     * true if the preload directive is set; null otherwise
+     * true if the preload directive is set; null otherwise.
      */
     public function getPreload()
     {
         return $this->preload;
     }
-    
+
     public function setPreload($preload)
     {
         $this->preload = $preload;
+
         return $this;
     }
 
     /**
-     * list of raw policy directives
+     * list of raw policy directives.
      */
     public function getDirectives()
     {
         return $this->directives;
     }
-    
+
     public function setDirectives($directives)
     {
         $this->directives = $directives;
+
         return $this;
     }
-
 }

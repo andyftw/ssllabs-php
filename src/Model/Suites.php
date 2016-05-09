@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -21,34 +21,33 @@ class Suites
      * @Type("boolean")
      */
     private $preference;
-
-
     /**
-     * list of [Suite objects](#suite)
+     * list of [Suite objects](#suite).
      */
     public function getList()
     {
         return $this->list;
     }
-    
+
     public function setList($list)
     {
         $this->list = $list;
+
         return $this;
     }
 
     /**
-     * true if the server actively selects cipher suites; if null, we were not able to determine if the server has a preference
+     * true if the server actively selects cipher suites; if null, we were not able to determine if the server has a preference.
      */
     public function getPreference()
     {
         return $this->preference;
     }
-    
+
     public function setPreference($preference)
     {
         $this->preference = $preference;
+
         return $this;
     }
-
 }

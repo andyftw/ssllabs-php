@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -42,8 +42,6 @@ class Key
      * @Type("integer")
      */
     private $q;
-
-
     /**
      * key size, e.g., 1024 or 2048 for RSA and DSA, or 256 bits for EC.
      */
@@ -51,10 +49,11 @@ class Key
     {
         return $this->size;
     }
-    
+
     public function setSize($size)
     {
         $this->size = $size;
+
         return $this;
     }
 
@@ -65,10 +64,11 @@ class Key
     {
         return $this->strength;
     }
-    
+
     public function setStrength($strength)
     {
         $this->strength = $strength;
+
         return $this;
     }
 
@@ -79,39 +79,41 @@ class Key
     {
         return $this->alg;
     }
-    
+
     public function setAlg($alg)
     {
         $this->alg = $alg;
+
         return $this;
     }
 
     /**
-     * true if we suspect that the key was generated using a weak random number generator (detected via a blacklist database)
+     * true if we suspect that the key was generated using a weak random number generator (detected via a blacklist database).
      */
     public function getDebianFlaw()
     {
         return $this->debianFlaw;
     }
-    
+
     public function setDebianFlaw($debianFlaw)
     {
         $this->debianFlaw = $debianFlaw;
+
         return $this;
     }
 
     /**
-     * 0 if key is insecure, null otherwise
+     * 0 if key is insecure, null otherwise.
      */
     public function getQ()
     {
         return $this->q;
     }
-    
+
     public function setQ($q)
     {
         $this->q = $q;
+
         return $this;
     }
-
 }

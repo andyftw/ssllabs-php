@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -105,8 +105,6 @@ class Endpoint
      * @Type("Andyftw\SSLLabs\Model\EndpointDetails")
      */
     private $details;
-
-
     /**
      * endpoint IP address, in IPv4 or IPv6 format.
      */
@@ -114,24 +112,26 @@ class Endpoint
     {
         return $this->ipAddress;
     }
-    
+
     public function setIpAddress($ipAddress)
     {
         $this->ipAddress = $ipAddress;
+
         return $this;
     }
 
     /**
-     * server name retrieved via reverse DNS
+     * server name retrieved via reverse DNS.
      */
     public function getServerName()
     {
         return $this->serverName;
     }
-    
+
     public function setServerName($serverName)
     {
         $this->serverName = $serverName;
+
         return $this;
     }
 
@@ -142,66 +142,71 @@ class Endpoint
     {
         return $this->statusMessage;
     }
-    
+
     public function setStatusMessage($statusMessage)
     {
         $this->statusMessage = $statusMessage;
+
         return $this;
     }
 
     /**
-     * code of the operation currently in progress
+     * code of the operation currently in progress.
      */
     public function getStatusDetails()
     {
         return $this->statusDetails;
     }
-    
+
     public function setStatusDetails($statusDetails)
     {
         $this->statusDetails = $statusDetails;
+
         return $this;
     }
 
     /**
-     * description of the operation currently in progress
+     * description of the operation currently in progress.
      */
     public function getStatusDetailsMessage()
     {
         return $this->statusDetailsMessage;
     }
-    
+
     public function setStatusDetailsMessage($statusDetailsMessage)
     {
         $this->statusDetailsMessage = $statusDetailsMessage;
+
         return $this;
     }
 
     /**
-     * possible values: A+, A-, A-F, T (no trust) and M (certificate name mismatch)
+     * possible values: A+, A-, A-F, T (no trust) and M (certificate name mismatch).
      */
     public function getGrade()
     {
         return $this->grade;
     }
-    
+
     public function setGrade($grade)
     {
         $this->grade = $grade;
+
         return $this;
     }
 
     /**
-     * grade (as above), if trust issues are ignored
+     * grade (as above), if trust issues are ignored.
      */
     public function getGradeTrustIgnored()
     {
         return $this->gradeTrustIgnored;
     }
-    
+
     public function setGradeTrustIgnored($gradeTrustIgnored)
     {
         $this->gradeTrustIgnored = $gradeTrustIgnored;
+
         return $this;
     }
 
@@ -212,10 +217,11 @@ class Endpoint
     {
         return $this->hasWarnings;
     }
-    
+
     public function setHasWarnings($hasWarnings)
     {
         $this->hasWarnings = $hasWarnings;
+
         return $this;
     }
 
@@ -226,66 +232,71 @@ class Endpoint
     {
         return $this->isExceptional;
     }
-    
+
     public function setIsExceptional($isExceptional)
     {
         $this->isExceptional = $isExceptional;
+
         return $this;
     }
 
     /**
-     * assessment progress, which is a value from 0 to 100, and -1 if the assessment has not yet started
+     * assessment progress, which is a value from 0 to 100, and -1 if the assessment has not yet started.
      */
     public function getProgress()
     {
         return $this->progress;
     }
-    
+
     public function setProgress($progress)
     {
         $this->progress = $progress;
+
         return $this;
     }
 
     /**
-     * assessment duration, in milliseconds
+     * assessment duration, in milliseconds.
      */
     public function getDuration()
     {
         return $this->duration;
     }
-    
+
     public function setDuration($duration)
     {
         $this->duration = $duration;
+
         return $this;
     }
 
     /**
-     * estimated time, in seconds, until the completion of the assessment
+     * estimated time, in seconds, until the completion of the assessment.
      */
     public function getEta()
     {
         return $this->eta;
     }
-    
+
     public function setEta($eta)
     {
         $this->eta = $eta;
+
         return $this;
     }
 
     /**
-     * indicates domain name delegation with and without the www prefix
+     * indicates domain name delegation with and without the www prefix.
      */
     public function getDelegation()
     {
         return $this->delegation;
     }
-    
+
     public function setDelegation($delegation)
     {
         $this->delegation = $delegation;
+
         return $this;
     }
 
@@ -297,11 +308,11 @@ class Endpoint
     {
         return $this->details;
     }
-    
+
     public function setDetails($details)
     {
         $this->details = $details;
+
         return $this;
     }
-
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -91,75 +91,78 @@ class ChainCert
      * @Type("string")
      */
     private $raw;
-
-
     /**
-     * certificate subject
+     * certificate subject.
      */
     public function getSubject()
     {
         return $this->subject;
     }
-    
+
     public function setSubject($subject)
     {
         $this->subject = $subject;
+
         return $this;
     }
 
     /**
-     * certificate label (user-friendly name)
+     * certificate label (user-friendly name).
      */
     public function getLabel()
     {
         return $this->label;
     }
-    
+
     public function setLabel($label)
     {
         $this->label = $label;
+
         return $this;
     }
 
     /**
-     * issuer subject
+     * issuer subject.
      */
     public function getIssuerSubject()
     {
         return $this->issuerSubject;
     }
-    
+
     public function setIssuerSubject($issuerSubject)
     {
         $this->issuerSubject = $issuerSubject;
+
         return $this;
     }
 
     /**
-     * issuer label (user-friendly name)
+     * issuer label (user-friendly name).
      */
     public function getIssuerLabel()
     {
         return $this->issuerLabel;
     }
-    
+
     public function setIssuerLabel($issuerLabel)
     {
         $this->issuerLabel = $issuerLabel;
+
         return $this;
     }
 
     /**
-     * a number of flags the describe the problems with this certificate:
+     * a number of flags the describe the problems with this certificate:.
      */
     public function getIssues()
     {
         return $this->issues;
     }
-    
+
     public function setIssues($issues)
     {
         $this->issues = $issues;
+
         return $this;
     }
 
@@ -170,10 +173,11 @@ class ChainCert
     {
         return $this->keyAlg;
     }
-    
+
     public function setKeyAlg($keyAlg)
     {
         $this->keyAlg = $keyAlg;
+
         return $this;
     }
 
@@ -184,10 +188,11 @@ class ChainCert
     {
         return $this->keySize;
     }
-    
+
     public function setKeySize($keySize)
     {
         $this->keySize = $keySize;
+
         return $this;
     }
 
@@ -198,24 +203,26 @@ class ChainCert
     {
         return $this->keyStrength;
     }
-    
+
     public function setKeyStrength($keyStrength)
     {
         $this->keyStrength = $keyStrength;
+
         return $this;
     }
 
     /**
-     * a number that describes the revocation status of the certificate:
+     * a number that describes the revocation status of the certificate:.
      */
     public function getRevocationStatus()
     {
         return $this->revocationStatus;
     }
-    
+
     public function setRevocationStatus($revocationStatus)
     {
         $this->revocationStatus = $revocationStatus;
+
         return $this;
     }
 
@@ -226,10 +233,11 @@ class ChainCert
     {
         return $this->crlRevocationStatus;
     }
-    
+
     public function setCrlRevocationStatus($crlRevocationStatus)
     {
         $this->crlRevocationStatus = $crlRevocationStatus;
+
         return $this;
     }
 
@@ -240,25 +248,26 @@ class ChainCert
     {
         return $this->ocspRevocationStatus;
     }
-    
+
     public function setOcspRevocationStatus($ocspRevocationStatus)
     {
         $this->ocspRevocationStatus = $ocspRevocationStatus;
+
         return $this;
     }
 
     /**
-     * PEM-encoded certificate data
+     * PEM-encoded certificate data.
      */
     public function getRaw()
     {
         return $this->raw;
     }
-    
+
     public function setRaw($raw)
     {
         $this->raw = $raw;
+
         return $this;
     }
-
 }

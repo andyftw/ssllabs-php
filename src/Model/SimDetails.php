@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -14,8 +14,6 @@ class SimDetails
      * @Type("array<Andyftw\SSLLabs\Model\Simulation>")
      */
     private $results;
-
-
     /**
      * instances of [Simulation](#simulation).
      */
@@ -23,11 +21,11 @@ class SimDetails
     {
         return $this->results;
     }
-    
+
     public function setResults($results)
     {
         $this->results = $results;
+
         return $this;
     }
-
 }

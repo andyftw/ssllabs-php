@@ -1,6 +1,6 @@
 <?php
 
-namespace Andyftw\SSLLabs\Model; 
+namespace Andyftw\SSLLabs\Model;
 
 use JMS\Serializer\Annotation\Type;
 use JMS\Serializer\Annotation\Accessor;
@@ -98,61 +98,63 @@ class Host
      * @Type("array<string>")
      */
     private $certHostnames;
-
-
     /**
-     * assessment host, which can be a hostname or an IP address
+     * assessment host, which can be a hostname or an IP address.
      */
     public function getHost()
     {
         return $this->host;
     }
-    
+
     public function setHost($host)
     {
         $this->host = $host;
+
         return $this;
     }
 
     /**
-     * assessment port (e.g., 443)
+     * assessment port (e.g., 443).
      */
     public function getPort()
     {
         return $this->port;
     }
-    
+
     public function setPort($port)
     {
         $this->port = $port;
+
         return $this;
     }
 
     /**
-     * protocol (e.g., HTTP)
+     * protocol (e.g., HTTP).
      */
     public function getProtocol()
     {
         return $this->protocol;
     }
-    
+
     public function setProtocol($protocol)
     {
         $this->protocol = $protocol;
+
         return $this;
     }
 
     /**
-     * true if this assessment is publicly available (listed on the SSL Labs assessment boards)
+     * true if this assessment is publicly available (listed on the SSL Labs assessment boards).
      */
     public function getIsPublic()
     {
         return $this->isPublic;
     }
-    
+
     public function setIsPublic($isPublic)
     {
         $this->isPublic = $isPublic;
+
         return $this;
     }
 
@@ -163,10 +165,11 @@ class Host
     {
         return $this->status;
     }
-    
+
     public function setStatus($status)
     {
         $this->status = $status;
+
         return $this;
     }
 
@@ -177,95 +180,102 @@ class Host
     {
         return $this->statusMessage;
     }
-    
+
     public function setStatusMessage($statusMessage)
     {
         $this->statusMessage = $statusMessage;
+
         return $this;
     }
 
     /**
-     * assessment starting time, in milliseconds since 1970
+     * assessment starting time, in milliseconds since 1970.
      */
     public function getStartTime()
     {
         return $this->startTime;
     }
-    
+
     public function setStartTime($startTime)
     {
         $this->startTime = $startTime;
+
         return $this;
     }
 
     /**
-     * assessment completion time, in milliseconds since 1970
+     * assessment completion time, in milliseconds since 1970.
      */
     public function getTestTime()
     {
         return $this->testTime;
     }
-    
+
     public function setTestTime($testTime)
     {
         $this->testTime = $testTime;
+
         return $this;
     }
 
     /**
-     * assessment engine version (e.g., "1.0.120")
+     * assessment engine version (e.g., "1.0.120").
      */
     public function getEngineVersion()
     {
         return $this->engineVersion;
     }
-    
+
     public function setEngineVersion($engineVersion)
     {
         $this->engineVersion = $engineVersion;
+
         return $this;
     }
 
     /**
-     * grading criteria version (e.g., "2009")
+     * grading criteria version (e.g., "2009").
      */
     public function getCriteriaVersion()
     {
         return $this->criteriaVersion;
     }
-    
+
     public function setCriteriaVersion($criteriaVersion)
     {
         $this->criteriaVersion = $criteriaVersion;
+
         return $this;
     }
 
     /**
      * when will the assessment results expire from the cache (typically set only for assessment with errors; otherwise the results stay in the
-     * cache for as long as there's sufficient room)
+     * cache for as long as there's sufficient room).
      */
     public function getCacheExpiryTime()
     {
         return $this->cacheExpiryTime;
     }
-    
+
     public function setCacheExpiryTime($cacheExpiryTime)
     {
         $this->cacheExpiryTime = $cacheExpiryTime;
+
         return $this;
     }
 
     /**
-     * list of [Endpoint objects](#endpoint)
+     * list of [Endpoint objects](#endpoint).
      */
     public function getEndpoints()
     {
         return $this->endpoints;
     }
-    
+
     public function setEndpoints($endpoints)
     {
         $this->endpoints = $endpoints;
+
         return $this;
     }
 
@@ -278,11 +288,11 @@ class Host
     {
         return $this->certHostnames;
     }
-    
+
     public function setCertHostnames($certHostnames)
     {
         $this->certHostnames = $certHostnames;
+
         return $this;
     }
-
 }
