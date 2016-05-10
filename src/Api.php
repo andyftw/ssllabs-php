@@ -138,9 +138,16 @@ final class Api
      */
     private function request($call, $parameters = [])
     {
-        return $this->client->get(self::API_URL.'/'.$call, [
-            'query' => array_filter($parameters)
-        ]);
+        try {
+            return $this->client->get(self::API_URL.'/'.$call, [
+                'query' => array_filter($parameters),
+                'headers' => [
+                    'user-agent' => 'SSLLabs-PHP'
+                ]
+            ]);
+        } catch (\Exception $e) {
+            throw new Exception\ApiException($e->getMessage(), $call);
+        }
     }
     
     /**
@@ -152,9 +159,13 @@ final class Api
      */
     private function json($call, $type, $parameters = [])
     {
-        $response = $this->request($call, $parameters);
-        $content = (string) $response->getBody();
+        try {
+            $response = $this->request($call, $parameters);
+            $content = (string) $response->getBody();
 
-        return $this->serializer->deserialize($content, $type, 'json');
+            return $this->serializer->deserialize($content, $type, 'json');
+        } catch (\Exception $e) {
+            throw new Exception\ApiException($e->getMessage(), $call);
+        }
     }
 }
