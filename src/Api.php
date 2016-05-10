@@ -114,14 +114,14 @@ final class Api
      */
     public function getStatusCodes()
     {
-        return $this->json('getStatusCodes');
+        return $this->json('getStatusCodes', Model\StatusCodes::class);
     }
 
     /**
      * API Call: getRootCertsRaw
      * Returns the root certificates used for trust validation.
      *
-     * @see https://github.com/ssllabs/ssllabs-scan/blob/stable/ssllabs-api-docs.md#retrieve-known-status-codes
+     * @see https://github.com/ssllabs/ssllabs-scan/blob/stable/ssllabs-api-docs.md#retrieve-root-certificates
      *
      * @return string
      */
