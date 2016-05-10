@@ -46,7 +46,7 @@ final class Api
      */
     public function info()
     {
-        return $this->json('info', Model\Info::class);
+        return $this->json('info', 'Andyftw\SSLLabs\Model\Info');
     }
 
     /**
@@ -62,13 +62,13 @@ final class Api
      * @param string $all            By default this call results only summaries of individual endpoints. 
      * @param bool   $ignoreMismatch Set to "on" to proceed with assessments even when the server certificate doesn't match the assessment hostname. 
      *
-     * @return Model\Host
+     * @return \Andyftw\SSLLabs\Model\Host
      */
     public function analyze($host, $publish = false, $startNew = false, $fromCache = false, $maxAge = null, $all = null, $ignoreMismatch = false)
     {
         return $this->json(
             'analyze',
-            Model\Host::class,
+            'Andyftw\SSLLabs\Model\Host',
             [
                 'host' => $host,
                 'publish' => $publish ? 'on' : 'off',
@@ -90,13 +90,13 @@ final class Api
      * @param string $s         Endpoint IP address
      * @param string $fromCache This parameter is intended for API consumers that don't want to wait for assessment results. 
                                 Can't be used at the same time as the startNew parameter.
-     * @return Model\Endpoint
+     * @return \Andyftw\SSLLabs\Model\Endpoint
      */
     public function getEndpointData($host, $s, $fromCache = false)
     {
         return $this->json(
             'getEndpointData',
-            Model\Endpoint::class,
+            'Andyftw\SSLLabs\Model\Endpoint',
             [
                 'host' => $host,
                 's' => $s,
@@ -110,11 +110,11 @@ final class Api
      *
      * @see https://github.com/ssllabs/ssllabs-scan/blob/stable/ssllabs-api-docs.md#retrieve-known-status-codes
      *
-     * @return Model\StatusCodes
+     * @return \Andyftw\SSLLabs\Model\StatusCodes
      */
     public function getStatusCodes()
     {
-        return $this->json('getStatusCodes', Model\StatusCodes::class);
+        return $this->json('getStatusCodes', 'Andyftw\SSLLabs\Model\StatusCodes');
     }
 
     /**
@@ -139,7 +139,7 @@ final class Api
     private function request($call, $parameters = [])
     {
         return $this->client->get(self::API_URL.'/'.$call, [
-            'query' => $parameters
+            'query' => array_filter($parameters)
         ]);
     }
     
