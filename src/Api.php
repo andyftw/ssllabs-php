@@ -138,7 +138,7 @@ final class Api
      */
     private function request($call, $parameters = [])
     {
-        return $this->client->request('GET', self::API_URL.'/'.$call, [
+        return $this->client->get(self::API_URL.'/'.$call, [
             'query' => $parameters
         ]);
     }
