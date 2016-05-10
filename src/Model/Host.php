@@ -1,111 +1,184 @@
 <?php
 
+/**
+ * This file is part of SSLLabs-PHP.
+ *
+ * (c) Andy <info@andyfront.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Andyftw\SSLLabs\Model;
 
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation as Serializer;
 
+/**
+ * Class Host
+ *
+ * @access public
+ * @package Andyftw\SSLLabs\Model
+ *
+ * @Serializer\AccessType("public_method")
+ */
 class Host
 {
     /**
-     * @Accessor(getter="getHost", setter="setHost")
-     * @SerializedName("host")
-     * @Type("string")
+     * Assessment host, which can be a hostname or an IP address.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getHost", setter="setHost")
+     * @Serializer\SerializedName("host")
+     * @Serializer\Type("string")
      */
     private $host;
 
     /**
-     * @Accessor(getter="getPort", setter="setPort")
-     * @SerializedName("port")
-     * @Type("integer")
+     * Assessment port (e.g., 443).
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getPort", setter="setPort")
+     * @Serializer\SerializedName("port")
+     * @Serializer\Type("integer")
      */
     private $port;
 
     /**
-     * @Accessor(getter="getProtocol", setter="setProtocol")
-     * @SerializedName("protocol")
-     * @Type("string")
+     * Protocol (e.g., HTTP).
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getProtocol", setter="setProtocol")
+     * @Serializer\SerializedName("protocol")
+     * @Serializer\Type("string")
      */
     private $protocol;
 
     /**
-     * @Accessor(getter="getIsPublic", setter="setIsPublic")
-     * @SerializedName("isPublic")
-     * @Type("boolean")
+     * True if this assessment is publicly available (listed on the SSL Labs assessment boards).
+     *
+     * @var boolean
+     * @Serializer\Accessor(getter="getIsPublic", setter="setIsPublic")
+     * @Serializer\SerializedName("isPublic")
+     * @Serializer\Type("boolean")
      */
     private $isPublic;
 
     /**
-     * @Accessor(getter="getStatus", setter="setStatus")
-     * @SerializedName("status")
-     * @Type("string")
+     * Assessment status; possible values: DNS, ERROR, IN_PROGRESS, and READY.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getStatus", setter="setStatus")
+     * @Serializer\SerializedName("status")
+     * @Serializer\Type("string")
      */
     private $status;
 
     /**
-     * @Accessor(getter="getStatusMessage", setter="setStatusMessage")
-     * @SerializedName("statusMessage")
-     * @Type("string")
+     * Status message in English. When status is ERROR, this field will contain an error message.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getStatusMessage", setter="setStatusMessage")
+     * @Serializer\SerializedName("statusMessage")
+     * @Serializer\Type("string")
      */
     private $statusMessage;
 
     /**
-     * @Accessor(getter="getStartTime", setter="setStartTime")
-     * @SerializedName("startTime")
-     * @Type("integer")
+     * Assessment starting time, in milliseconds since 1970.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getStartTime", setter="setStartTime")
+     * @Serializer\SerializedName("startTime")
+     * @Serializer\Type("integer")
      */
     private $startTime;
 
     /**
-     * @Accessor(getter="getTestTime", setter="setTestTime")
-     * @SerializedName("testTime")
-     * @Type("integer")
+     * Assessment completion time, in milliseconds since 1970.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getTestTime", setter="setTestTime")
+     * @Serializer\SerializedName("testTime")
+     * @Serializer\Type("integer")
      */
     private $testTime;
 
     /**
-     * @Accessor(getter="getEngineVersion", setter="setEngineVersion")
-     * @SerializedName("engineVersion")
-     * @Type("string")
+     * Assessment engine version (e.g., "1.0.120").
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getEngineVersion", setter="setEngineVersion")
+     * @Serializer\SerializedName("engineVersion")
+     * @Serializer\Type("string")
      */
     private $engineVersion;
 
     /**
-     * @Accessor(getter="getCriteriaVersion", setter="setCriteriaVersion")
-     * @SerializedName("criteriaVersion")
-     * @Type("string")
+     * Grading criteria version (e.g., "2009").
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getCriteriaVersion", setter="setCriteriaVersion")
+     * @Serializer\SerializedName("criteriaVersion")
+     * @Serializer\Type("string")
      */
     private $criteriaVersion;
 
     /**
-     * @Accessor(getter="getCacheExpiryTime", setter="setCacheExpiryTime")
-     * @SerializedName("cacheExpiryTime")
-     * @Type("integer")
+     * When will the assessment results expire from the cache (typically set only for assessment with errors;
+     * otherwise the results stay in the cache for as long as there's sufficient room).
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getCacheExpiryTime", setter="setCacheExpiryTime")
+     * @Serializer\SerializedName("cacheExpiryTime")
+     * @Serializer\Type("integer")
      */
     private $cacheExpiryTime;
 
     /**
-     * @Accessor(getter="getEndpoints", setter="setEndpoints")
-     * @SerializedName("endpoints")
-     * @Type("array<Andyftw\SSLLabs\Model\Endpoint>")
+     * List of [Endpoint objects](#endpoint).
+     *
+     * @var \Andyftw\SSLLabs\Model\Endpoint[]
+     * @Serializer\Accessor(getter="getEndpoints", setter="setEndpoints")
+     * @Serializer\SerializedName("endpoints")
+     * @Serializer\Type("array<\Andyftw\SSLLabs\Model\Endpoint>")
      */
     private $endpoints;
 
     /**
-     * @Accessor(getter="getCertHostnames", setter="setCertHostnames")
-     * @SerializedName("certHostnames")
-     * @Type("array<string>")
+     * The list of certificate hostnames collected from the certificates seen during assessment. The hostnames may
+     * not be valid. This field is available only if the server certificate doesn't match the requested hostname. In
+     * that case, this field saves you some time as you don't have to inspect the certificates yourself to find out
+     * what valid hostnames might be.
+     *
+     * @var string[]
+     * @Serializer\Accessor(getter="getCertHostnames", setter="setCertHostnames")
+     * @Serializer\SerializedName("certHostnames")
+     * @Serializer\Type("array<string>")
      */
     private $certHostnames;
+
     /**
-     * assessment host, which can be a hostname or an IP address.
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
+
+    /**
+     * Assessment host, which can be a hostname or an IP address.
+     *
+     * @return string
      */
     public function getHost()
     {
         return $this->host;
     }
 
+    /**
+     * @param $host
+     *
+     * @return $this
+     */
     public function setHost($host)
     {
         $this->host = $host;
@@ -114,13 +187,20 @@ class Host
     }
 
     /**
-     * assessment port (e.g., 443).
+     * Assessment port (e.g., 443).
+     *
+     * @return integer
      */
     public function getPort()
     {
         return $this->port;
     }
 
+    /**
+     * @param $port
+     *
+     * @return $this
+     */
     public function setPort($port)
     {
         $this->port = $port;
@@ -129,13 +209,20 @@ class Host
     }
 
     /**
-     * protocol (e.g., HTTP).
+     * Protocol (e.g., HTTP).
+     *
+     * @return string
      */
     public function getProtocol()
     {
         return $this->protocol;
     }
 
+    /**
+     * @param $protocol
+     *
+     * @return $this
+     */
     public function setProtocol($protocol)
     {
         $this->protocol = $protocol;
@@ -144,13 +231,20 @@ class Host
     }
 
     /**
-     * true if this assessment is publicly available (listed on the SSL Labs assessment boards).
+     * True if this assessment is publicly available (listed on the SSL Labs assessment boards).
+     *
+     * @return boolean
      */
     public function getIsPublic()
     {
         return $this->isPublic;
     }
 
+    /**
+     * @param $isPublic
+     *
+     * @return $this
+     */
     public function setIsPublic($isPublic)
     {
         $this->isPublic = $isPublic;
@@ -159,13 +253,20 @@ class Host
     }
 
     /**
-     * assessment status; possible values: DNS, ERROR, IN_PROGRESS, and READY.
+     * Assessment status; possible values: DNS, ERROR, IN_PROGRESS, and READY.
+     *
+     * @return string
      */
     public function getStatus()
     {
         return $this->status;
     }
 
+    /**
+     * @param $status
+     *
+     * @return $this
+     */
     public function setStatus($status)
     {
         $this->status = $status;
@@ -174,13 +275,20 @@ class Host
     }
 
     /**
-     * status message in English. When status is ERROR, this field will contain an error message.
+     * Status message in English. When status is ERROR, this field will contain an error message.
+     *
+     * @return string
      */
     public function getStatusMessage()
     {
         return $this->statusMessage;
     }
 
+    /**
+     * @param $statusMessage
+     *
+     * @return $this
+     */
     public function setStatusMessage($statusMessage)
     {
         $this->statusMessage = $statusMessage;
@@ -189,13 +297,20 @@ class Host
     }
 
     /**
-     * assessment starting time, in milliseconds since 1970.
+     * Assessment starting time, in milliseconds since 1970.
+     *
+     * @return integer
      */
     public function getStartTime()
     {
         return $this->startTime;
     }
 
+    /**
+     * @param $startTime
+     *
+     * @return $this
+     */
     public function setStartTime($startTime)
     {
         $this->startTime = $startTime;
@@ -204,13 +319,20 @@ class Host
     }
 
     /**
-     * assessment completion time, in milliseconds since 1970.
+     * Assessment completion time, in milliseconds since 1970.
+     *
+     * @return integer
      */
     public function getTestTime()
     {
         return $this->testTime;
     }
 
+    /**
+     * @param $testTime
+     *
+     * @return $this
+     */
     public function setTestTime($testTime)
     {
         $this->testTime = $testTime;
@@ -219,13 +341,20 @@ class Host
     }
 
     /**
-     * assessment engine version (e.g., "1.0.120").
+     * Assessment engine version (e.g., "1.0.120").
+     *
+     * @return string
      */
     public function getEngineVersion()
     {
         return $this->engineVersion;
     }
 
+    /**
+     * @param $engineVersion
+     *
+     * @return $this
+     */
     public function setEngineVersion($engineVersion)
     {
         $this->engineVersion = $engineVersion;
@@ -234,13 +363,20 @@ class Host
     }
 
     /**
-     * grading criteria version (e.g., "2009").
+     * Grading criteria version (e.g., "2009").
+     *
+     * @return string
      */
     public function getCriteriaVersion()
     {
         return $this->criteriaVersion;
     }
 
+    /**
+     * @param $criteriaVersion
+     *
+     * @return $this
+     */
     public function setCriteriaVersion($criteriaVersion)
     {
         $this->criteriaVersion = $criteriaVersion;
@@ -249,14 +385,21 @@ class Host
     }
 
     /**
-     * when will the assessment results expire from the cache (typically set only for assessment with errors; otherwise the results stay in the
-     * cache for as long as there's sufficient room).
+     * When will the assessment results expire from the cache (typically set only for assessment with errors;
+     * otherwise the results stay in the cache for as long as there's sufficient room).
+     *
+     * @return integer
      */
     public function getCacheExpiryTime()
     {
         return $this->cacheExpiryTime;
     }
 
+    /**
+     * @param $cacheExpiryTime
+     *
+     * @return $this
+     */
     public function setCacheExpiryTime($cacheExpiryTime)
     {
         $this->cacheExpiryTime = $cacheExpiryTime;
@@ -265,13 +408,20 @@ class Host
     }
 
     /**
-     * list of [Endpoint objects](#endpoint).
+     * List of [Endpoint objects](#endpoint).
+     *
+     * @return \Andyftw\SSLLabs\Model\Endpoint[]
      */
     public function getEndpoints()
     {
         return $this->endpoints;
     }
 
+    /**
+     * @param $endpoints
+     *
+     * @return $this
+     */
     public function setEndpoints($endpoints)
     {
         $this->endpoints = $endpoints;
@@ -280,15 +430,23 @@ class Host
     }
 
     /**
-     * the list of certificate hostnames collected from the certificates seen during assessment. The hostnames may not be valid. This field is
-     * available only if the server certificate doesn't match the requested hostname. In that case, this field saves you some time as you don't
-     * have to inspect the certificates yourself to find out what valid hostnames might be.
+     * The list of certificate hostnames collected from the certificates seen during assessment. The hostnames may
+     * not be valid. This field is available only if the server certificate doesn't match the requested hostname. In
+     * that case, this field saves you some time as you don't have to inspect the certificates yourself to find out
+     * what valid hostnames might be.
+     *
+     * @return string[]
      */
     public function getCertHostnames()
     {
         return $this->certHostnames;
     }
 
+    /**
+     * @param $certHostnames
+     *
+     * @return $this
+     */
     public function setCertHostnames($certHostnames)
     {
         $this->certHostnames = $certHostnames;

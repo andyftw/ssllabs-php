@@ -1,104 +1,170 @@
 <?php
 
+/**
+ * This file is part of SSLLabs-PHP.
+ *
+ * (c) Andy <info@andyfront.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Andyftw\SSLLabs\Model;
 
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation as Serializer;
 
+/**
+ * Class ChainCert
+ *
+ * @access public
+ * @package Andyftw\SSLLabs\Model
+ *
+ * @Serializer\AccessType("public_method")
+ */
 class ChainCert
 {
     /**
-     * @Accessor(getter="getSubject", setter="setSubject")
-     * @SerializedName("subject")
-     * @Type("string")
+     * Certificate subject.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getSubject", setter="setSubject")
+     * @Serializer\SerializedName("subject")
+     * @Serializer\Type("string")
      */
     private $subject;
 
     /**
-     * @Accessor(getter="getLabel", setter="setLabel")
-     * @SerializedName("label")
-     * @Type("string")
+     * Certificate label (user-friendly name).
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getLabel", setter="setLabel")
+     * @Serializer\SerializedName("label")
+     * @Serializer\Type("string")
      */
     private $label;
 
     /**
-     * @Accessor(getter="getIssuerSubject", setter="setIssuerSubject")
-     * @SerializedName("issuerSubject")
-     * @Type("string")
+     * Issuer subject.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getIssuerSubject", setter="setIssuerSubject")
+     * @Serializer\SerializedName("issuerSubject")
+     * @Serializer\Type("string")
      */
     private $issuerSubject;
 
     /**
-     * @Accessor(getter="getIssuerLabel", setter="setIssuerLabel")
-     * @SerializedName("issuerLabel")
-     * @Type("string")
+     * Issuer label (user-friendly name).
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getIssuerLabel", setter="setIssuerLabel")
+     * @Serializer\SerializedName("issuerLabel")
+     * @Serializer\Type("string")
      */
     private $issuerLabel;
 
     /**
-     * @Accessor(getter="getIssues", setter="setIssues")
-     * @SerializedName("issues")
-     * @Type("integer")
+     * A number of flags the describe the problems with this certificate:.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getIssues", setter="setIssues")
+     * @Serializer\SerializedName("issues")
+     * @Serializer\Type("integer")
      */
     private $issues;
 
     /**
-     * @Accessor(getter="getKeyAlg", setter="setKeyAlg")
-     * @SerializedName("keyAlg")
-     * @Type("string")
+     * Key algorithm.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getKeyAlg", setter="setKeyAlg")
+     * @Serializer\SerializedName("keyAlg")
+     * @Serializer\Type("string")
      */
     private $keyAlg;
 
     /**
-     * @Accessor(getter="getKeySize", setter="setKeySize")
-     * @SerializedName("keySize")
-     * @Type("integer")
+     * Key size, in bits appropriate for the key algorithm.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getKeySize", setter="setKeySize")
+     * @Serializer\SerializedName("keySize")
+     * @Serializer\Type("integer")
      */
     private $keySize;
 
     /**
-     * @Accessor(getter="getKeyStrength", setter="setKeyStrength")
-     * @SerializedName("keyStrength")
-     * @Type("integer")
+     * Key strength, in equivalent RSA bits.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getKeyStrength", setter="setKeyStrength")
+     * @Serializer\SerializedName("keyStrength")
+     * @Serializer\Type("integer")
      */
     private $keyStrength;
 
     /**
-     * @Accessor(getter="getRevocationStatus", setter="setRevocationStatus")
-     * @SerializedName("revocationStatus")
-     * @Type("integer")
+     * A number that describes the revocation status of the certificate:.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getRevocationStatus", setter="setRevocationStatus")
+     * @Serializer\SerializedName("revocationStatus")
+     * @Serializer\Type("integer")
      */
     private $revocationStatus;
 
     /**
-     * @Accessor(getter="getCrlRevocationStatus", setter="setCrlRevocationStatus")
-     * @SerializedName("crlRevocationStatus")
-     * @Type("integer")
+     * Same as revocationStatus, but only for the CRL information (if any).
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getCrlRevocationStatus", setter="setCrlRevocationStatus")
+     * @Serializer\SerializedName("crlRevocationStatus")
+     * @Serializer\Type("integer")
      */
     private $crlRevocationStatus;
 
     /**
-     * @Accessor(getter="getOcspRevocationStatus", setter="setOcspRevocationStatus")
-     * @SerializedName("ocspRevocationStatus")
-     * @Type("integer")
+     * Same as revocationStatus, but only for the OCSP information (if any).
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getOcspRevocationStatus", setter="setOcspRevocationStatus")
+     * @Serializer\SerializedName("ocspRevocationStatus")
+     * @Serializer\Type("integer")
      */
     private $ocspRevocationStatus;
 
     /**
-     * @Accessor(getter="getRaw", setter="setRaw")
-     * @SerializedName("raw")
-     * @Type("string")
+     * PEM-encoded certificate data.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getRaw", setter="setRaw")
+     * @Serializer\SerializedName("raw")
+     * @Serializer\Type("string")
      */
     private $raw;
+
     /**
-     * certificate subject.
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
+
+    /**
+     * Certificate subject.
+     *
+     * @return string
      */
     public function getSubject()
     {
         return $this->subject;
     }
 
+    /**
+     * @param $subject
+     *
+     * @return $this
+     */
     public function setSubject($subject)
     {
         $this->subject = $subject;
@@ -107,13 +173,20 @@ class ChainCert
     }
 
     /**
-     * certificate label (user-friendly name).
+     * Certificate label (user-friendly name).
+     *
+     * @return string
      */
     public function getLabel()
     {
         return $this->label;
     }
 
+    /**
+     * @param $label
+     *
+     * @return $this
+     */
     public function setLabel($label)
     {
         $this->label = $label;
@@ -122,13 +195,20 @@ class ChainCert
     }
 
     /**
-     * issuer subject.
+     * Issuer subject.
+     *
+     * @return string
      */
     public function getIssuerSubject()
     {
         return $this->issuerSubject;
     }
 
+    /**
+     * @param $issuerSubject
+     *
+     * @return $this
+     */
     public function setIssuerSubject($issuerSubject)
     {
         $this->issuerSubject = $issuerSubject;
@@ -137,13 +217,20 @@ class ChainCert
     }
 
     /**
-     * issuer label (user-friendly name).
+     * Issuer label (user-friendly name).
+     *
+     * @return string
      */
     public function getIssuerLabel()
     {
         return $this->issuerLabel;
     }
 
+    /**
+     * @param $issuerLabel
+     *
+     * @return $this
+     */
     public function setIssuerLabel($issuerLabel)
     {
         $this->issuerLabel = $issuerLabel;
@@ -152,13 +239,20 @@ class ChainCert
     }
 
     /**
-     * a number of flags the describe the problems with this certificate:.
+     * A number of flags the describe the problems with this certificate:.
+     *
+     * @return integer
      */
     public function getIssues()
     {
         return $this->issues;
     }
 
+    /**
+     * @param $issues
+     *
+     * @return $this
+     */
     public function setIssues($issues)
     {
         $this->issues = $issues;
@@ -167,13 +261,20 @@ class ChainCert
     }
 
     /**
-     * key algorithm.
+     * Key algorithm.
+     *
+     * @return string
      */
     public function getKeyAlg()
     {
         return $this->keyAlg;
     }
 
+    /**
+     * @param $keyAlg
+     *
+     * @return $this
+     */
     public function setKeyAlg($keyAlg)
     {
         $this->keyAlg = $keyAlg;
@@ -182,13 +283,20 @@ class ChainCert
     }
 
     /**
-     * key size, in bits appropriate for the key algorithm.
+     * Key size, in bits appropriate for the key algorithm.
+     *
+     * @return integer
      */
     public function getKeySize()
     {
         return $this->keySize;
     }
 
+    /**
+     * @param $keySize
+     *
+     * @return $this
+     */
     public function setKeySize($keySize)
     {
         $this->keySize = $keySize;
@@ -197,13 +305,20 @@ class ChainCert
     }
 
     /**
-     * key strength, in equivalent RSA bits.
+     * Key strength, in equivalent RSA bits.
+     *
+     * @return integer
      */
     public function getKeyStrength()
     {
         return $this->keyStrength;
     }
 
+    /**
+     * @param $keyStrength
+     *
+     * @return $this
+     */
     public function setKeyStrength($keyStrength)
     {
         $this->keyStrength = $keyStrength;
@@ -212,13 +327,20 @@ class ChainCert
     }
 
     /**
-     * a number that describes the revocation status of the certificate:.
+     * A number that describes the revocation status of the certificate:.
+     *
+     * @return integer
      */
     public function getRevocationStatus()
     {
         return $this->revocationStatus;
     }
 
+    /**
+     * @param $revocationStatus
+     *
+     * @return $this
+     */
     public function setRevocationStatus($revocationStatus)
     {
         $this->revocationStatus = $revocationStatus;
@@ -227,13 +349,20 @@ class ChainCert
     }
 
     /**
-     * same as revocationStatus, but only for the CRL information (if any).
+     * Same as revocationStatus, but only for the CRL information (if any).
+     *
+     * @return integer
      */
     public function getCrlRevocationStatus()
     {
         return $this->crlRevocationStatus;
     }
 
+    /**
+     * @param $crlRevocationStatus
+     *
+     * @return $this
+     */
     public function setCrlRevocationStatus($crlRevocationStatus)
     {
         $this->crlRevocationStatus = $crlRevocationStatus;
@@ -242,13 +371,20 @@ class ChainCert
     }
 
     /**
-     * same as revocationStatus, but only for the OCSP information (if any).
+     * Same as revocationStatus, but only for the OCSP information (if any).
+     *
+     * @return integer
      */
     public function getOcspRevocationStatus()
     {
         return $this->ocspRevocationStatus;
     }
 
+    /**
+     * @param $ocspRevocationStatus
+     *
+     * @return $this
+     */
     public function setOcspRevocationStatus($ocspRevocationStatus)
     {
         $this->ocspRevocationStatus = $ocspRevocationStatus;
@@ -258,12 +394,19 @@ class ChainCert
 
     /**
      * PEM-encoded certificate data.
+     *
+     * @return string
      */
     public function getRaw()
     {
         return $this->raw;
     }
 
+    /**
+     * @param $raw
+     *
+     * @return $this
+     */
     public function setRaw($raw)
     {
         $this->raw = $raw;

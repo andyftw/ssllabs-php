@@ -1,90 +1,150 @@
 <?php
 
+/**
+ * This file is part of SSLLabs-PHP.
+ *
+ * (c) Andy <info@andyfront.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Andyftw\SSLLabs\Model;
 
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation as Serializer;
 
+/**
+ * Class Suite
+ *
+ * @access public
+ * @package Andyftw\SSLLabs\Model
+ *
+ * @Serializer\AccessType("public_method")
+ */
 class Suite
 {
     /**
-     * @Accessor(getter="getId", setter="setId")
-     * @SerializedName("id")
-     * @Type("integer")
+     * Suite RFC ID (e.g., 5).
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getId", setter="setId")
+     * @Serializer\SerializedName("id")
+     * @Serializer\Type("integer")
      */
     private $id;
 
     /**
-     * @Accessor(getter="getName", setter="setName")
-     * @SerializedName("name")
-     * @Type("string")
+     * Suite name (e.g., TLS_RSA_WITH_RC4_128_SHA).
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getName", setter="setName")
+     * @Serializer\SerializedName("name")
+     * @Serializer\Type("string")
      */
     private $name;
 
     /**
-     * @Accessor(getter="getCipherStrength", setter="setCipherStrength")
-     * @SerializedName("cipherStrength")
-     * @Type("integer")
+     * Suite strength (e.g., 128).
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getCipherStrength", setter="setCipherStrength")
+     * @Serializer\SerializedName("cipherStrength")
+     * @Serializer\Type("integer")
      */
     private $cipherStrength;
 
     /**
-     * @Accessor(getter="getDhStrength", setter="setDhStrength")
-     * @SerializedName("dhStrength")
-     * @Type("integer")
+     * Strength of DH params (e.g., 1024).
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getDhStrength", setter="setDhStrength")
+     * @Serializer\SerializedName("dhStrength")
+     * @Serializer\Type("integer")
      */
     private $dhStrength;
 
     /**
-     * @Accessor(getter="getDhP", setter="setDhP")
-     * @SerializedName("dhP")
-     * @Type("integer")
+     * DH params, p component.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getDhP", setter="setDhP")
+     * @Serializer\SerializedName("dhP")
+     * @Serializer\Type("integer")
      */
     private $dhP;
 
     /**
-     * @Accessor(getter="getDhG", setter="setDhG")
-     * @SerializedName("dhG")
-     * @Type("integer")
+     * DH params, g component.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getDhG", setter="setDhG")
+     * @Serializer\SerializedName("dhG")
+     * @Serializer\Type("integer")
      */
     private $dhG;
 
     /**
-     * @Accessor(getter="getDhYs", setter="setDhYs")
-     * @SerializedName("dhYs")
-     * @Type("integer")
+     * DH params, Ys component.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getDhYs", setter="setDhYs")
+     * @Serializer\SerializedName("dhYs")
+     * @Serializer\Type("integer")
      */
     private $dhYs;
 
     /**
-     * @Accessor(getter="getEcdhBits", setter="setEcdhBits")
-     * @SerializedName("ecdhBits")
-     * @Type("integer")
+     * ECDH bits.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getEcdhBits", setter="setEcdhBits")
+     * @Serializer\SerializedName("ecdhBits")
+     * @Serializer\Type("integer")
      */
     private $ecdhBits;
 
     /**
-     * @Accessor(getter="getEcdhStrength", setter="setEcdhStrength")
-     * @SerializedName("ecdhStrength")
-     * @Type("integer")
+     * ECDH RSA-equivalent strength.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getEcdhStrength", setter="setEcdhStrength")
+     * @Serializer\SerializedName("ecdhStrength")
+     * @Serializer\Type("integer")
      */
     private $ecdhStrength;
 
     /**
-     * @Accessor(getter="getQ", setter="setQ")
-     * @SerializedName("q")
-     * @Type("integer")
+     * 0 if the suite is insecure, null otherwise.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getQ", setter="setQ")
+     * @Serializer\SerializedName("q")
+     * @Serializer\Type("integer")
      */
     private $q;
+
     /**
-     * suite RFC ID (e.g., 5).
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
+
+    /**
+     * Suite RFC ID (e.g., 5).
+     *
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @param $id
+     *
+     * @return $this
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -93,13 +153,20 @@ class Suite
     }
 
     /**
-     * suite name (e.g., TLS_RSA_WITH_RC4_128_SHA).
+     * Suite name (e.g., TLS_RSA_WITH_RC4_128_SHA).
+     *
+     * @return string
      */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     * @param $name
+     *
+     * @return $this
+     */
     public function setName($name)
     {
         $this->name = $name;
@@ -108,13 +175,20 @@ class Suite
     }
 
     /**
-     * suite strength (e.g., 128).
+     * Suite strength (e.g., 128).
+     *
+     * @return integer
      */
     public function getCipherStrength()
     {
         return $this->cipherStrength;
     }
 
+    /**
+     * @param $cipherStrength
+     *
+     * @return $this
+     */
     public function setCipherStrength($cipherStrength)
     {
         $this->cipherStrength = $cipherStrength;
@@ -123,13 +197,20 @@ class Suite
     }
 
     /**
-     * strength of DH params (e.g., 1024).
+     * Strength of DH params (e.g., 1024).
+     *
+     * @return integer
      */
     public function getDhStrength()
     {
         return $this->dhStrength;
     }
 
+    /**
+     * @param $dhStrength
+     *
+     * @return $this
+     */
     public function setDhStrength($dhStrength)
     {
         $this->dhStrength = $dhStrength;
@@ -139,12 +220,19 @@ class Suite
 
     /**
      * DH params, p component.
+     *
+     * @return integer
      */
     public function getDhP()
     {
         return $this->dhP;
     }
 
+    /**
+     * @param $dhP
+     *
+     * @return $this
+     */
     public function setDhP($dhP)
     {
         $this->dhP = $dhP;
@@ -154,12 +242,19 @@ class Suite
 
     /**
      * DH params, g component.
+     *
+     * @return integer
      */
     public function getDhG()
     {
         return $this->dhG;
     }
 
+    /**
+     * @param $dhG
+     *
+     * @return $this
+     */
     public function setDhG($dhG)
     {
         $this->dhG = $dhG;
@@ -169,12 +264,19 @@ class Suite
 
     /**
      * DH params, Ys component.
+     *
+     * @return integer
      */
     public function getDhYs()
     {
         return $this->dhYs;
     }
 
+    /**
+     * @param $dhYs
+     *
+     * @return $this
+     */
     public function setDhYs($dhYs)
     {
         $this->dhYs = $dhYs;
@@ -184,12 +286,19 @@ class Suite
 
     /**
      * ECDH bits.
+     *
+     * @return integer
      */
     public function getEcdhBits()
     {
         return $this->ecdhBits;
     }
 
+    /**
+     * @param $ecdhBits
+     *
+     * @return $this
+     */
     public function setEcdhBits($ecdhBits)
     {
         $this->ecdhBits = $ecdhBits;
@@ -199,12 +308,19 @@ class Suite
 
     /**
      * ECDH RSA-equivalent strength.
+     *
+     * @return integer
      */
     public function getEcdhStrength()
     {
         return $this->ecdhStrength;
     }
 
+    /**
+     * @param $ecdhStrength
+     *
+     * @return $this
+     */
     public function setEcdhStrength($ecdhStrength)
     {
         $this->ecdhStrength = $ecdhStrength;
@@ -214,12 +330,19 @@ class Suite
 
     /**
      * 0 if the suite is insecure, null otherwise.
+     *
+     * @return integer
      */
     public function getQ()
     {
         return $this->q;
     }
 
+    /**
+     * @param $q
+     *
+     * @return $this
+     */
     public function setQ($q)
     {
         $this->q = $q;

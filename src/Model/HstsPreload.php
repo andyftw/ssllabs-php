@@ -1,48 +1,90 @@
 <?php
 
+/**
+ * This file is part of SSLLabs-PHP.
+ *
+ * (c) Andy <info@andyfront.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Andyftw\SSLLabs\Model;
 
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation as Serializer;
 
+/**
+ * Class HstsPreload
+ *
+ * @access public
+ * @package Andyftw\SSLLabs\Model
+ *
+ * @Serializer\AccessType("public_method")
+ */
 class HstsPreload
 {
     /**
-     * @Accessor(getter="getSource", setter="setSource")
-     * @SerializedName("source")
-     * @Type("string")
+     * Source name.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getSource", setter="setSource")
+     * @Serializer\SerializedName("source")
+     * @Serializer\Type("string")
      */
     private $source;
 
     /**
-     * @Accessor(getter="getStatus", setter="setStatus")
-     * @SerializedName("status")
-     * @Type("string")
+     * Preload status:.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getStatus", setter="setStatus")
+     * @Serializer\SerializedName("status")
+     * @Serializer\Type("string")
      */
     private $status;
 
     /**
-     * @Accessor(getter="getError", setter="setError")
-     * @SerializedName("error")
-     * @Type("string")
+     * Error message, when status is "error".
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getError", setter="setError")
+     * @Serializer\SerializedName("error")
+     * @Serializer\Type("string")
      */
     private $error;
 
     /**
-     * @Accessor(getter="getSourceTime", setter="setSourceTime")
-     * @SerializedName("sourceTime")
-     * @Type("integer")
+     * Time, as a Unix timestamp, when the preload database was retrieved.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getSourceTime", setter="setSourceTime")
+     * @Serializer\SerializedName("sourceTime")
+     * @Serializer\Type("integer")
      */
     private $sourceTime;
+
     /**
-     * source name.
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
+
+    /**
+     * Source name.
+     *
+     * @return string
      */
     public function getSource()
     {
         return $this->source;
     }
 
+    /**
+     * @param $source
+     *
+     * @return $this
+     */
     public function setSource($source)
     {
         $this->source = $source;
@@ -51,13 +93,20 @@ class HstsPreload
     }
 
     /**
-     * preload status:.
+     * Preload status:.
+     *
+     * @return string
      */
     public function getStatus()
     {
         return $this->status;
     }
 
+    /**
+     * @param $status
+     *
+     * @return $this
+     */
     public function setStatus($status)
     {
         $this->status = $status;
@@ -66,13 +115,20 @@ class HstsPreload
     }
 
     /**
-     * error message, when status is "error".
+     * Error message, when status is "error".
+     *
+     * @return string
      */
     public function getError()
     {
         return $this->error;
     }
 
+    /**
+     * @param $error
+     *
+     * @return $this
+     */
     public function setError($error)
     {
         $this->error = $error;
@@ -81,13 +137,20 @@ class HstsPreload
     }
 
     /**
-     * time, as a Unix timestamp, when the preload database was retrieved.
+     * Time, as a Unix timestamp, when the preload database was retrieved.
+     *
+     * @return integer
      */
     public function getSourceTime()
     {
         return $this->sourceTime;
     }
 
+    /**
+     * @param $sourceTime
+     *
+     * @return $this
+     */
     public function setSourceTime($sourceTime)
     {
         $this->sourceTime = $sourceTime;

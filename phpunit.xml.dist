@@ -10,7 +10,7 @@
     processIsolation            = "true"
     stopOnFailure               = "true"
     syntaxCheck                 = "true"
-    bootstrap                   = "vendor/autoload.php">
+    bootstrap                   = "bootstrap.php">
     <testsuites>
         <testsuite name="">
             <directory>tests/</directory>

@@ -1,146 +1,230 @@
 <?php
 
+/**
+ * This file is part of SSLLabs-PHP.
+ *
+ * (c) Andy <info@andyfront.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Andyftw\SSLLabs\Model;
 
-use JMS\Serializer\Annotation\Type;
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation as Serializer;
 
+/**
+ * Class Cert
+ *
+ * @access public
+ * @package Andyftw\SSLLabs\Model
+ *
+ * @Serializer\AccessType("public_method")
+ */
 class Cert
 {
     /**
-     * @Accessor(getter="getSubject", setter="setSubject")
-     * @SerializedName("subject")
-     * @Type("string")
+     * Certificate subject.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getSubject", setter="setSubject")
+     * @Serializer\SerializedName("subject")
+     * @Serializer\Type("string")
      */
     private $subject;
 
     /**
-     * @Accessor(getter="getCommonNames", setter="setCommonNames")
-     * @SerializedName("commonNames")
-     * @Type("array<string>")
+     * Common names extracted from the subject.
+     *
+     * @var string[]
+     * @Serializer\Accessor(getter="getCommonNames", setter="setCommonNames")
+     * @Serializer\SerializedName("commonNames")
+     * @Serializer\Type("array<string>")
      */
     private $commonNames;
 
     /**
-     * @Accessor(getter="getAltNames", setter="setAltNames")
-     * @SerializedName("altNames")
-     * @Type("array<string>")
+     * Alternative names.
+     *
+     * @var string[]
+     * @Serializer\Accessor(getter="getAltNames", setter="setAltNames")
+     * @Serializer\SerializedName("altNames")
+     * @Serializer\Type("array<string>")
      */
     private $altNames;
 
     /**
-     * @Accessor(getter="getNotBefore", setter="setNotBefore")
-     * @SerializedName("notBefore")
-     * @Type("integer")
+     * Timestamp before which the certificate is not valid.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getNotBefore", setter="setNotBefore")
+     * @Serializer\SerializedName("notBefore")
+     * @Serializer\Type("integer")
      */
     private $notBefore;
 
     /**
-     * @Accessor(getter="getNotAfter", setter="setNotAfter")
-     * @SerializedName("notAfter")
-     * @Type("integer")
+     * Timestamp after which the certificate is not valid.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getNotAfter", setter="setNotAfter")
+     * @Serializer\SerializedName("notAfter")
+     * @Serializer\Type("integer")
      */
     private $notAfter;
 
     /**
-     * @Accessor(getter="getIssuerSubject", setter="setIssuerSubject")
-     * @SerializedName("issuerSubject")
-     * @Type("string")
+     * Issuer subject.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getIssuerSubject", setter="setIssuerSubject")
+     * @Serializer\SerializedName("issuerSubject")
+     * @Serializer\Type("string")
      */
     private $issuerSubject;
 
     /**
-     * @Accessor(getter="getSigAlg", setter="setSigAlg")
-     * @SerializedName("sigAlg")
-     * @Type("string")
+     * Certificate signature algorithm.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getSigAlg", setter="setSigAlg")
+     * @Serializer\SerializedName("sigAlg")
+     * @Serializer\Type("string")
      */
     private $sigAlg;
 
     /**
-     * @Accessor(getter="getIssuerLabel", setter="setIssuerLabel")
-     * @SerializedName("issuerLabel")
-     * @Type("string")
+     * Issuer name.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getIssuerLabel", setter="setIssuerLabel")
+     * @Serializer\SerializedName("issuerLabel")
+     * @Serializer\Type("string")
      */
     private $issuerLabel;
 
     /**
-     * @Accessor(getter="getRevocationInfo", setter="setRevocationInfo")
-     * @SerializedName("revocationInfo")
-     * @Type("integer")
+     * A number that represents revocation information present in the certificate:.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getRevocationInfo", setter="setRevocationInfo")
+     * @Serializer\SerializedName("revocationInfo")
+     * @Serializer\Type("integer")
      */
     private $revocationInfo;
 
     /**
-     * @Accessor(getter="getCrlURIs", setter="setCrlURIs")
-     * @SerializedName("crlURIs")
-     * @Type("array<string>")
+     * CRL URIs extracted from the certificate.
+     *
+     * @var string[]
+     * @Serializer\Accessor(getter="getCrlURIs", setter="setCrlURIs")
+     * @Serializer\SerializedName("crlURIs")
+     * @Serializer\Type("array<string>")
      */
     private $crlURIs;
 
     /**
-     * @Accessor(getter="getOcspURIs", setter="setOcspURIs")
-     * @SerializedName("ocspURIs")
-     * @Type("array<string>")
+     * OCSP URIs extracted from the certificate.
+     *
+     * @var string[]
+     * @Serializer\Accessor(getter="getOcspURIs", setter="setOcspURIs")
+     * @Serializer\SerializedName("ocspURIs")
+     * @Serializer\Type("array<string>")
      */
     private $ocspURIs;
 
     /**
-     * @Accessor(getter="getRevocationStatus", setter="setRevocationStatus")
-     * @SerializedName("revocationStatus")
-     * @Type("integer")
+     * A number that describes the revocation status of the certificate:.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getRevocationStatus", setter="setRevocationStatus")
+     * @Serializer\SerializedName("revocationStatus")
+     * @Serializer\Type("integer")
      */
     private $revocationStatus;
 
     /**
-     * @Accessor(getter="getCrlRevocationStatus", setter="setCrlRevocationStatus")
-     * @SerializedName("crlRevocationStatus")
-     * @Type("integer")
+     * Same as revocationStatus, but only for the CRL information (if any).
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getCrlRevocationStatus", setter="setCrlRevocationStatus")
+     * @Serializer\SerializedName("crlRevocationStatus")
+     * @Serializer\Type("integer")
      */
     private $crlRevocationStatus;
 
     /**
-     * @Accessor(getter="getOcspRevocationStatus", setter="setOcspRevocationStatus")
-     * @SerializedName("ocspRevocationStatus")
-     * @Type("integer")
+     * Same as revocationStatus, but only for the OCSP information (if any).
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getOcspRevocationStatus", setter="setOcspRevocationStatus")
+     * @Serializer\SerializedName("ocspRevocationStatus")
+     * @Serializer\Type("integer")
      */
     private $ocspRevocationStatus;
 
     /**
-     * @Accessor(getter="getSgc", setter="setSgc")
-     * @SerializedName("sgc")
-     * @Type("integer")
+     * Server Gated Cryptography support; integer:.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getSgc", setter="setSgc")
+     * @Serializer\SerializedName("sgc")
+     * @Serializer\Type("integer")
      */
     private $sgc;
 
     /**
-     * @Accessor(getter="getValidationType", setter="setValidationType")
-     * @SerializedName("validationType")
-     * @Type("string")
+     * E for Extended Validation certificates; may be null if unable to determine.
+     *
+     * @var string
+     * @Serializer\Accessor(getter="getValidationType", setter="setValidationType")
+     * @Serializer\SerializedName("validationType")
+     * @Serializer\Type("string")
      */
     private $validationType;
 
     /**
-     * @Accessor(getter="getIssues", setter="setIssues")
-     * @SerializedName("issues")
-     * @Type("integer")
+     * List of certificate issues, one bit per issue:.
+     *
+     * @var integer
+     * @Serializer\Accessor(getter="getIssues", setter="setIssues")
+     * @Serializer\SerializedName("issues")
+     * @Serializer\Type("integer")
      */
     private $issues;
 
     /**
-     * @Accessor(getter="getSct", setter="setSct")
-     * @SerializedName("sct")
-     * @Type("boolean")
+     * True if the certificate contains an embedded SCT; false otherwise.
+     *
+     * @var boolean
+     * @Serializer\Accessor(getter="getSct", setter="setSct")
+     * @Serializer\SerializedName("sct")
+     * @Serializer\Type("boolean")
      */
     private $sct;
+
     /**
-     * certificate subject.
+     * Constructor
+     */
+    public function __construct()
+    {
+    }
+
+    /**
+     * Certificate subject.
+     *
+     * @return string
      */
     public function getSubject()
     {
         return $this->subject;
     }
 
+    /**
+     * @param $subject
+     *
+     * @return $this
+     */
     public function setSubject($subject)
     {
         $this->subject = $subject;
@@ -149,13 +233,20 @@ class Cert
     }
 
     /**
-     * common names extracted from the subject.
+     * Common names extracted from the subject.
+     *
+     * @return string[]
      */
     public function getCommonNames()
     {
         return $this->commonNames;
     }
 
+    /**
+     * @param $commonNames
+     *
+     * @return $this
+     */
     public function setCommonNames($commonNames)
     {
         $this->commonNames = $commonNames;
@@ -164,13 +255,20 @@ class Cert
     }
 
     /**
-     * alternative names.
+     * Alternative names.
+     *
+     * @return string[]
      */
     public function getAltNames()
     {
         return $this->altNames;
     }
 
+    /**
+     * @param $altNames
+     *
+     * @return $this
+     */
     public function setAltNames($altNames)
     {
         $this->altNames = $altNames;
@@ -179,13 +277,20 @@ class Cert
     }
 
     /**
-     * timestamp before which the certificate is not valid.
+     * Timestamp before which the certificate is not valid.
+     *
+     * @return integer
      */
     public function getNotBefore()
     {
         return $this->notBefore;
     }
 
+    /**
+     * @param $notBefore
+     *
+     * @return $this
+     */
     public function setNotBefore($notBefore)
     {
         $this->notBefore = $notBefore;
@@ -194,13 +299,20 @@ class Cert
     }
 
     /**
-     * timestamp after which the certificate is not valid.
+     * Timestamp after which the certificate is not valid.
+     *
+     * @return integer
      */
     public function getNotAfter()
     {
         return $this->notAfter;
     }
 
+    /**
+     * @param $notAfter
+     *
+     * @return $this
+     */
     public function setNotAfter($notAfter)
     {
         $this->notAfter = $notAfter;
@@ -209,13 +321,20 @@ class Cert
     }
 
     /**
-     * issuer subject.
+     * Issuer subject.
+     *
+     * @return string
      */
     public function getIssuerSubject()
     {
         return $this->issuerSubject;
     }
 
+    /**
+     * @param $issuerSubject
+     *
+     * @return $this
+     */
     public function setIssuerSubject($issuerSubject)
     {
         $this->issuerSubject = $issuerSubject;
@@ -224,13 +343,20 @@ class Cert
     }
 
     /**
-     * certificate signature algorithm.
+     * Certificate signature algorithm.
+     *
+     * @return string
      */
     public function getSigAlg()
     {
         return $this->sigAlg;
     }
 
+    /**
+     * @param $sigAlg
+     *
+     * @return $this
+     */
     public function setSigAlg($sigAlg)
     {
         $this->sigAlg = $sigAlg;
@@ -239,13 +365,20 @@ class Cert
     }
 
     /**
-     * issuer name.
+     * Issuer name.
+     *
+     * @return string
      */
     public function getIssuerLabel()
     {
         return $this->issuerLabel;
     }
 
+    /**
+     * @param $issuerLabel
+     *
+     * @return $this
+     */
     public function setIssuerLabel($issuerLabel)
     {
         $this->issuerLabel = $issuerLabel;
@@ -254,13 +387,20 @@ class Cert
     }
 
     /**
-     * a number that represents revocation information present in the certificate:.
+     * A number that represents revocation information present in the certificate:.
+     *
+     * @return integer
      */
     public function getRevocationInfo()
     {
         return $this->revocationInfo;
     }
 
+    /**
+     * @param $revocationInfo
+     *
+     * @return $this
+     */
     public function setRevocationInfo($revocationInfo)
     {
         $this->revocationInfo = $revocationInfo;
@@ -270,12 +410,19 @@ class Cert
 
     /**
      * CRL URIs extracted from the certificate.
+     *
+     * @return string[]
      */
     public function getCrlURIs()
     {
         return $this->crlURIs;
     }
 
+    /**
+     * @param $crlURIs
+     *
+     * @return $this
+     */
     public function setCrlURIs($crlURIs)
     {
         $this->crlURIs = $crlURIs;
@@ -285,12 +432,19 @@ class Cert
 
     /**
      * OCSP URIs extracted from the certificate.
+     *
+     * @return string[]
      */
     public function getOcspURIs()
     {
         return $this->ocspURIs;
     }
 
+    /**
+     * @param $ocspURIs
+     *
+     * @return $this
+     */
     public function setOcspURIs($ocspURIs)
     {
         $this->ocspURIs = $ocspURIs;
@@ -299,13 +453,20 @@ class Cert
     }
 
     /**
-     * a number that describes the revocation status of the certificate:.
+     * A number that describes the revocation status of the certificate:.
+     *
+     * @return integer
      */
     public function getRevocationStatus()
     {
         return $this->revocationStatus;
     }
 
+    /**
+     * @param $revocationStatus
+     *
+     * @return $this
+     */
     public function setRevocationStatus($revocationStatus)
     {
         $this->revocationStatus = $revocationStatus;
@@ -314,13 +475,20 @@ class Cert
     }
 
     /**
-     * same as revocationStatus, but only for the CRL information (if any).
+     * Same as revocationStatus, but only for the CRL information (if any).
+     *
+     * @return integer
      */
     public function getCrlRevocationStatus()
     {
         return $this->crlRevocationStatus;
     }
 
+    /**
+     * @param $crlRevocationStatus
+     *
+     * @return $this
+     */
     public function setCrlRevocationStatus($crlRevocationStatus)
     {
         $this->crlRevocationStatus = $crlRevocationStatus;
@@ -329,13 +497,20 @@ class Cert
     }
 
     /**
-     * same as revocationStatus, but only for the OCSP information (if any).
+     * Same as revocationStatus, but only for the OCSP information (if any).
+     *
+     * @return integer
      */
     public function getOcspRevocationStatus()
     {
         return $this->ocspRevocationStatus;
     }
 
+    /**
+     * @param $ocspRevocationStatus
+     *
+     * @return $this
+     */
     public function setOcspRevocationStatus($ocspRevocationStatus)
     {
         $this->ocspRevocationStatus = $ocspRevocationStatus;
@@ -345,12 +520,19 @@ class Cert
 
     /**
      * Server Gated Cryptography support; integer:.
+     *
+     * @return integer
      */
     public function getSgc()
     {
         return $this->sgc;
     }
 
+    /**
+     * @param $sgc
+     *
+     * @return $this
+     */
     public function setSgc($sgc)
     {
         $this->sgc = $sgc;
@@ -360,12 +542,19 @@ class Cert
 
     /**
      * E for Extended Validation certificates; may be null if unable to determine.
+     *
+     * @return string
      */
     public function getValidationType()
     {
         return $this->validationType;
     }
 
+    /**
+     * @param $validationType
+     *
+     * @return $this
+     */
     public function setValidationType($validationType)
     {
         $this->validationType = $validationType;
@@ -374,13 +563,20 @@ class Cert
     }
 
     /**
-     * list of certificate issues, one bit per issue:.
+     * List of certificate issues, one bit per issue:.
+     *
+     * @return integer
      */
     public function getIssues()
     {
         return $this->issues;
     }
 
+    /**
+     * @param $issues
+     *
+     * @return $this
+     */
     public function setIssues($issues)
     {
         $this->issues = $issues;
@@ -389,13 +585,20 @@ class Cert
     }
 
     /**
-     * true if the certificate contains an embedded SCT; false otherwise.
+     * True if the certificate contains an embedded SCT; false otherwise.
+     *
+     * @return boolean
      */
     public function getSct()
     {
         return $this->sct;
     }
 
+    /**
+     * @param $sct
+     *
+     * @return $this
+     */
     public function setSct($sct)
     {
         $this->sct = $sct;
