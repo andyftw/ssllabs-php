@@ -26,10 +26,10 @@ class Suites
     /**
      * List of [Suite objects](#suite).
      *
-     * @var \Andyftw\SSLLabs\Model\Suite[]
+     * @var Andyftw\SSLLabs\Model\Suite[]
      * @Serializer\Accessor(getter="getList", setter="setList")
      * @Serializer\SerializedName("list")
-     * @Serializer\Type("array<\Andyftw\SSLLabs\Model\Suite>")
+     * @Serializer\Type("array<Andyftw\SSLLabs\Model\Suite>")
      */
     private $list;
 
@@ -54,7 +54,7 @@ class Suites
     /**
      * List of [Suite objects](#suite).
      *
-     * @return \Andyftw\SSLLabs\Model\Suite[]
+     * @return Andyftw\SSLLabs\Model\Suite[]
      */
     public function getList()
     {

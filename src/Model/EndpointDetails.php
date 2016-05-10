@@ -26,50 +26,50 @@ class EndpointDetails
     /**
      * [key information](#key).
      *
-     * @var \Andyftw\SSLLabs\Model\Key
+     * @var Andyftw\SSLLabs\Model\Key
      * @Serializer\Accessor(getter="getKey", setter="setKey")
      * @Serializer\SerializedName("key")
-     * @Serializer\Type("\Andyftw\SSLLabs\Model\Key")
+     * @Serializer\Type("Andyftw\SSLLabs\Model\Key")
      */
     private $key;
 
     /**
      * [certificate information](#cert).
      *
-     * @var \Andyftw\SSLLabs\Model\Cert
+     * @var Andyftw\SSLLabs\Model\Cert
      * @Serializer\Accessor(getter="getCert", setter="setCert")
      * @Serializer\SerializedName("cert")
-     * @Serializer\Type("\Andyftw\SSLLabs\Model\Cert")
+     * @Serializer\Type("Andyftw\SSLLabs\Model\Cert")
      */
     private $cert;
 
     /**
      * [chain information](#chain).
      *
-     * @var \Andyftw\SSLLabs\Model\Chain
+     * @var Andyftw\SSLLabs\Model\Chain
      * @Serializer\Accessor(getter="getChain", setter="setChain")
      * @Serializer\SerializedName("chain")
-     * @Serializer\Type("\Andyftw\SSLLabs\Model\Chain")
+     * @Serializer\Type("Andyftw\SSLLabs\Model\Chain")
      */
     private $chain;
 
     /**
      * Supported [protocols](#protocol).
      *
-     * @var \Andyftw\SSLLabs\Model\Protocol[]
+     * @var Andyftw\SSLLabs\Model\Protocol[]
      * @Serializer\Accessor(getter="getProtocols", setter="setProtocols")
      * @Serializer\SerializedName("protocols")
-     * @Serializer\Type("array<\Andyftw\SSLLabs\Model\Protocol>")
+     * @Serializer\Type("array<Andyftw\SSLLabs\Model\Protocol>")
      */
     private $protocols;
 
     /**
      * Supported [cipher suites](#suites).
      *
-     * @var \Andyftw\SSLLabs\Model\Suites
+     * @var Andyftw\SSLLabs\Model\Suites
      * @Serializer\Accessor(getter="getSuites", setter="setSuites")
      * @Serializer\SerializedName("suites")
-     * @Serializer\Type("\Andyftw\SSLLabs\Model\Suites")
+     * @Serializer\Type("Andyftw\SSLLabs\Model\Suites")
      */
     private $suites;
 
@@ -268,10 +268,10 @@ class EndpointDetails
     /**
      * Instance of [SimDetails](#simdetails).
      *
-     * @var \Andyftw\SSLLabs\Model\SimDetails
+     * @var Andyftw\SSLLabs\Model\SimDetails
      * @Serializer\Accessor(getter="getSims", setter="setSims")
      * @Serializer\SerializedName("sims")
-     * @Serializer\Type("\Andyftw\SSLLabs\Model\SimDetails")
+     * @Serializer\Type("Andyftw\SSLLabs\Model\SimDetails")
      */
     private $sims;
 
@@ -413,40 +413,40 @@ class EndpointDetails
     /**
      * Server's HSTS policy. Experimental.
      *
-     * @var \Andyftw\SSLLabs\Model\HstsPolicy
+     * @var Andyftw\SSLLabs\Model\HstsPolicy
      * @Serializer\Accessor(getter="getHstsPolicy", setter="setHstsPolicy")
      * @Serializer\SerializedName("hstsPolicy")
-     * @Serializer\Type("\Andyftw\SSLLabs\Model\HstsPolicy")
+     * @Serializer\Type("Andyftw\SSLLabs\Model\HstsPolicy")
      */
     private $hstsPolicy;
 
     /**
      * Information about preloaded HSTS policies.
      *
-     * @var \Andyftw\SSLLabs\Model\HstsPreload[]
+     * @var Andyftw\SSLLabs\Model\HstsPreload[]
      * @Serializer\Accessor(getter="getHstsPreloads", setter="setHstsPreloads")
      * @Serializer\SerializedName("hstsPreloads")
-     * @Serializer\Type("array<\Andyftw\SSLLabs\Model\HstsPreload>")
+     * @Serializer\Type("array<Andyftw\SSLLabs\Model\HstsPreload>")
      */
     private $hstsPreloads;
 
     /**
      * Server's HPKP policy. Experimental.
      *
-     * @var \Andyftw\SSLLabs\Model\HpkpPolicy
+     * @var Andyftw\SSLLabs\Model\HpkpPolicy
      * @Serializer\Accessor(getter="getHpkpPolicy", setter="setHpkpPolicy")
      * @Serializer\SerializedName("hpkpPolicy")
-     * @Serializer\Type("\Andyftw\SSLLabs\Model\HpkpPolicy")
+     * @Serializer\Type("Andyftw\SSLLabs\Model\HpkpPolicy")
      */
     private $hpkpPolicy;
 
     /**
      * Server's HPKP RO (Report Only) policy. Experimental.
      *
-     * @var \Andyftw\SSLLabs\Model\HpkpPolicy
+     * @var Andyftw\SSLLabs\Model\HpkpPolicy
      * @Serializer\Accessor(getter="getHpkpRoPolicy", setter="setHpkpRoPolicy")
      * @Serializer\SerializedName("hpkpRoPolicy")
-     * @Serializer\Type("\Andyftw\SSLLabs\Model\HpkpPolicy")
+     * @Serializer\Type("Andyftw\SSLLabs\Model\HpkpPolicy")
      */
     private $hpkpRoPolicy;
 
@@ -460,7 +460,7 @@ class EndpointDetails
     /**
      * [key information](#key).
      *
-     * @return \Andyftw\SSLLabs\Model\Key
+     * @return Andyftw\SSLLabs\Model\Key
      */
     public function getKey()
     {
@@ -482,7 +482,7 @@ class EndpointDetails
     /**
      * [certificate information](#cert).
      *
-     * @return \Andyftw\SSLLabs\Model\Cert
+     * @return Andyftw\SSLLabs\Model\Cert
      */
     public function getCert()
     {
@@ -504,7 +504,7 @@ class EndpointDetails
     /**
      * [chain information](#chain).
      *
-     * @return \Andyftw\SSLLabs\Model\Chain
+     * @return Andyftw\SSLLabs\Model\Chain
      */
     public function getChain()
     {
@@ -526,7 +526,7 @@ class EndpointDetails
     /**
      * Supported [protocols](#protocol).
      *
-     * @return \Andyftw\SSLLabs\Model\Protocol[]
+     * @return Andyftw\SSLLabs\Model\Protocol[]
      */
     public function getProtocols()
     {
@@ -548,7 +548,7 @@ class EndpointDetails
     /**
      * Supported [cipher suites](#suites).
      *
-     * @return \Andyftw\SSLLabs\Model\Suites
+     * @return Andyftw\SSLLabs\Model\Suites
      */
     public function getSuites()
     {
@@ -990,7 +990,7 @@ class EndpointDetails
     /**
      * Instance of [SimDetails](#simdetails).
      *
-     * @return \Andyftw\SSLLabs\Model\SimDetails
+     * @return Andyftw\SSLLabs\Model\SimDetails
      */
     public function getSims()
     {
@@ -1303,7 +1303,7 @@ class EndpointDetails
     /**
      * Server's HSTS policy. Experimental.
      *
-     * @return \Andyftw\SSLLabs\Model\HstsPolicy
+     * @return Andyftw\SSLLabs\Model\HstsPolicy
      */
     public function getHstsPolicy()
     {
@@ -1325,7 +1325,7 @@ class EndpointDetails
     /**
      * Information about preloaded HSTS policies.
      *
-     * @return \Andyftw\SSLLabs\Model\HstsPreload[]
+     * @return Andyftw\SSLLabs\Model\HstsPreload[]
      */
     public function getHstsPreloads()
     {
@@ -1347,7 +1347,7 @@ class EndpointDetails
     /**
      * Server's HPKP policy. Experimental.
      *
-     * @return \Andyftw\SSLLabs\Model\HpkpPolicy
+     * @return Andyftw\SSLLabs\Model\HpkpPolicy
      */
     public function getHpkpPolicy()
     {
@@ -1369,7 +1369,7 @@ class EndpointDetails
     /**
      * Server's HPKP RO (Report Only) policy. Experimental.
      *
-     * @return \Andyftw\SSLLabs\Model\HpkpPolicy
+     * @return Andyftw\SSLLabs\Model\HpkpPolicy
      */
     public function getHpkpRoPolicy()
     {

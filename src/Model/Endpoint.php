@@ -158,10 +158,10 @@ class Endpoint
      * This field contains an EndpointDetails object. It's not present by default, but can be enabled by using the
      * "all" parameter to the `analyze` API call.
      *
-     * @var \Andyftw\SSLLabs\Model\EndpointDetails
+     * @var Andyftw\SSLLabs\Model\EndpointDetails
      * @Serializer\Accessor(getter="getDetails", setter="setDetails")
      * @Serializer\SerializedName("details")
-     * @Serializer\Type("\Andyftw\SSLLabs\Model\EndpointDetails")
+     * @Serializer\Type("Andyftw\SSLLabs\Model\EndpointDetails")
      */
     private $details;
 
@@ -463,7 +463,7 @@ class Endpoint
      * This field contains an EndpointDetails object. It's not present by default, but can be enabled by using the
      * "all" parameter to the `analyze` API call.
      *
-     * @return \Andyftw\SSLLabs\Model\EndpointDetails
+     * @return Andyftw\SSLLabs\Model\EndpointDetails
      */
     public function getDetails()
     {

@@ -26,10 +26,10 @@ class Simulation
     /**
      * Instance of [SimClient](#simclient).
      *
-     * @var \Andyftw\SSLLabs\Model\SimClient
+     * @var Andyftw\SSLLabs\Model\SimClient
      * @Serializer\Accessor(getter="getClient", setter="setClient")
      * @Serializer\SerializedName("client")
-     * @Serializer\Type("\Andyftw\SSLLabs\Model\SimClient")
+     * @Serializer\Type("Andyftw\SSLLabs\Model\SimClient")
      */
     private $client;
 
@@ -83,7 +83,7 @@ class Simulation
     /**
      * Instance of [SimClient](#simclient).
      *
-     * @return \Andyftw\SSLLabs\Model\SimClient
+     * @return Andyftw\SSLLabs\Model\SimClient
      */
     public function getClient()
     {

@@ -26,10 +26,10 @@ class SimDetails
     /**
      * Instances of [Simulation](#simulation).
      *
-     * @var \Andyftw\SSLLabs\Model\Simulation[]
+     * @var Andyftw\SSLLabs\Model\Simulation[]
      * @Serializer\Accessor(getter="getResults", setter="setResults")
      * @Serializer\SerializedName("results")
-     * @Serializer\Type("array<\Andyftw\SSLLabs\Model\Simulation>")
+     * @Serializer\Type("array<Andyftw\SSLLabs\Model\Simulation>")
      */
     private $results;
 
@@ -43,7 +43,7 @@ class SimDetails
     /**
      * Instances of [Simulation](#simulation).
      *
-     * @return \Andyftw\SSLLabs\Model\Simulation[]
+     * @return Andyftw\SSLLabs\Model\Simulation[]
      */
     public function getResults()
     {

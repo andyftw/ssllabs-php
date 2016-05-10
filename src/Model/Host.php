@@ -137,10 +137,10 @@ class Host
     /**
      * List of [Endpoint objects](#endpoint).
      *
-     * @var \Andyftw\SSLLabs\Model\Endpoint[]
+     * @var Andyftw\SSLLabs\Model\Endpoint[]
      * @Serializer\Accessor(getter="getEndpoints", setter="setEndpoints")
      * @Serializer\SerializedName("endpoints")
-     * @Serializer\Type("array<\Andyftw\SSLLabs\Model\Endpoint>")
+     * @Serializer\Type("array<Andyftw\SSLLabs\Model\Endpoint>")
      */
     private $endpoints;
 
@@ -410,7 +410,7 @@ class Host
     /**
      * List of [Endpoint objects](#endpoint).
      *
-     * @return \Andyftw\SSLLabs\Model\Endpoint[]
+     * @return Andyftw\SSLLabs\Model\Endpoint[]
      */
     public function getEndpoints()
     {

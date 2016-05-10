@@ -86,20 +86,20 @@ class HpkpPolicy
     /**
      * List of all pins used by the policy.
      *
-     * @var \Andyftw\SSLLabs\Model\HpkpPin[]
+     * @var Andyftw\SSLLabs\Model\HpkpPin[]
      * @Serializer\Accessor(getter="getPins", setter="setPins")
      * @Serializer\SerializedName("pins")
-     * @Serializer\Type("array<\Andyftw\SSLLabs\Model\HpkpPin>")
+     * @Serializer\Type("array<Andyftw\SSLLabs\Model\HpkpPin>")
      */
     private $pins;
 
     /**
      * List of pins that match the current configuration.
      *
-     * @var \Andyftw\SSLLabs\Model\HpkpPin[]
+     * @var Andyftw\SSLLabs\Model\HpkpPin[]
      * @Serializer\Accessor(getter="getMatchedPins", setter="setMatchedPins")
      * @Serializer\SerializedName("matchedPins")
-     * @Serializer\Type("array<\Andyftw\SSLLabs\Model\HpkpPin>")
+     * @Serializer\Type("array<Andyftw\SSLLabs\Model\HpkpPin>")
      */
     private $matchedPins;
 
@@ -255,7 +255,7 @@ class HpkpPolicy
     /**
      * List of all pins used by the policy.
      *
-     * @return \Andyftw\SSLLabs\Model\HpkpPin[]
+     * @return Andyftw\SSLLabs\Model\HpkpPin[]
      */
     public function getPins()
     {
@@ -277,7 +277,7 @@ class HpkpPolicy
     /**
      * List of pins that match the current configuration.
      *
-     * @return \Andyftw\SSLLabs\Model\HpkpPin[]
+     * @return Andyftw\SSLLabs\Model\HpkpPin[]
      */
     public function getMatchedPins()
     {

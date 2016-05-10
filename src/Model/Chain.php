@@ -27,10 +27,10 @@ class Chain
      * A list of [ChainCert objects](#chaincert), representing the chain certificates in the order in which they were
      * retrieved from the server.
      *
-     * @var \Andyftw\SSLLabs\Model\ChainCert[]
+     * @var Andyftw\SSLLabs\Model\ChainCert[]
      * @Serializer\Accessor(getter="getCerts", setter="setCerts")
      * @Serializer\SerializedName("certs")
-     * @Serializer\Type("array<\Andyftw\SSLLabs\Model\ChainCert>")
+     * @Serializer\Type("array<Andyftw\SSLLabs\Model\ChainCert>")
      */
     private $certs;
 
@@ -55,7 +55,7 @@ class Chain
      * A list of [ChainCert objects](#chaincert), representing the chain certificates in the order in which they were
      * retrieved from the server.
      *
-     * @return \Andyftw\SSLLabs\Model\ChainCert[]
+     * @return Andyftw\SSLLabs\Model\ChainCert[]
      */
     public function getCerts()
     {

@@ -46,7 +46,7 @@ final class Api
      */
     public function info()
     {
-        return $this->request('info', 'Andyftw\SSLLabs\Model\Info');
+        return $this->json('info', Model\Info::class);
     }
 
     /**
@@ -62,21 +62,21 @@ final class Api
      * @param string $all            By default this call results only summaries of individual endpoints. 
      * @param bool   $ignoreMismatch Set to "on" to proceed with assessments even when the server certificate doesn't match the assessment hostname. 
      *
-     * @return \Andyftw\SSLLabs\Model\Host
+     * @return Model\Host
      */
     public function analyze($host, $publish = false, $startNew = false, $fromCache = false, $maxAge = null, $all = null, $ignoreMismatch = false)
     {
-        return $this->request(
+        return $this->json(
             'analyze',
-            'Andyftw\SSLLabs\Model\Host',
+            Model\Host::class,
             [
                 'host' => $host,
-                'publish' => $publish,
-                'startNew' => $startNew,
-                'fromCache' => $fromCache,
+                'publish' => $publish ? 'on' : 'off',
+                'startNew' => $startNew ? 'on' : 'off',
+                'fromCache' => $fromCache ? 'on' : 'off',
                 'maxAge' => $maxAge,
                 'all' => $all,
-                'ignoreMismatch' => $ignoreMismatch,
+                'ignoreMismatch' => $ignoreMismatch ? 'on' : 'off',
             ]
         );
     }
@@ -89,14 +89,14 @@ final class Api
      * @param string $host      Hostname
      * @param string $s         Endpoint IP address
      * @param string $fromCache This parameter is intended for API consumers that don't want to wait for assessment results. 
-     Can't be used at the same time as the startNew parameter.
-     * @return \Andyftw\SSLLabs\Model\Endpoint
+                                Can't be used at the same time as the startNew parameter.
+     * @return Model\Endpoint
      */
     public function getEndpointData($host, $s, $fromCache = false)
     {
-        return $this->request(
+        return $this->json(
             'getEndpointData',
-            'Andyftw\SSLLabs\Model\Endpoint',
+            Model\Endpoint::class,
             [
                 'host' => $host,
                 's' => $s,
@@ -110,11 +110,11 @@ final class Api
      *
      * @see https://github.com/ssllabs/ssllabs-scan/blob/stable/ssllabs-api-docs.md#retrieve-known-status-codes
      *
-     * @return \Andyftw\SSLLabs\Model\StatusCodes
+     * @return Model\StatusCodes
      */
     public function getStatusCodes()
     {
-        return $this->request('getStatusCodes');
+        return $this->json('getStatusCodes');
     }
 
     /**
@@ -122,27 +122,40 @@ final class Api
      * Returns the root certificates used for trust validation.
      *
      * @see https://github.com/ssllabs/ssllabs-scan/blob/stable/ssllabs-api-docs.md#retrieve-known-status-codes
+     *
+     * @return string
      */
     public function getRootCertsRaw()
     {
-        return $this->request('getRootCertsRaw');
+        return (string) $this->request('getRootCertsRaw')->getBody();
     }
 
     /**
-     * Send API request.
+     * Send request.
      * 
      * @param string $call
      * @param string $type
      * @param array  $parameters
-     *
-     * @return $type
      */
-    private function request($call, $type, $parameters = [])
+    private function request($call, $parameters = [])
     {
-        $response = $this->client->request('GET', self::API_URL.'/'.$call, [
-            'query' => $parameters,
+        return $this->client->request('GET', self::API_URL.'/'.$call, [
+            'query' => $parameters
         ]);
+    }
+    
+    /**
+     * Get API response.
+     * 
+     * @param string $call
+     * @param string $type
+     * @param array  $parameters
+     */
+    private function json($call, $type, $parameters = [])
+    {
+        $response = $this->request($call, $parameters);
+        $content = (string) $response->getBody();
 
-        return $this->serializer->deserialize((string) $response->getBody(), $type, 'json');
+        return $this->serializer->deserialize($content, $type, 'json');
     }
 }
