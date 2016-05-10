@@ -14,11 +14,11 @@ matrix:
     - php: hhvm
   
 before_script:
+  # XDebug
+  - phpenv config-rm xdebug.ini
   # Composer
   - composer self-update || true
   - composer install --prefer-dist
-  # XDebug
-  - phpenv config-rm xdebug.ini
 
 script:
   # PHPUnit
