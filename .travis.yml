@@ -17,11 +17,7 @@ before_script:
   # Composer
   - composer self-update || true
   - composer install --prefer-dist
-  # Sami
-  - wget http://get.sensiolabs.org/sami.phar
 
 script:
   # PHPUnit
   - php vendor/bin/phpunit --colors
-  # Sami
-  - php sami.phar update sami.conf.php
