@@ -134,7 +134,6 @@ final class Api
      * Send request.
      * 
      * @param string $call
-     * @param string $type
      * @param array  $parameters
      */
     private function request($call, $parameters = [])
