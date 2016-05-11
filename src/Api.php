@@ -2,7 +2,7 @@
 
 namespace Andyftw\SSLLabs;
 
-use GuzzleHttp\Client;
+use Guzzle\Http\Client;
 use JMS\Serializer\SerializerBuilder;
 
 /**
@@ -160,8 +160,8 @@ final class Api
     private function json($call, $type, $parameters = [])
     {
         try {
-            $response = $this->request($call, $parameters);
-            $content = (string) $response->getBody();
+            $request = $this->request($call, $parameters);
+            $content = (string) $request->send()->getBody();
 
             return $this->serializer->deserialize($content, $type, 'json');
         } catch (\Exception $e) {
