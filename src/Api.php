@@ -2,9 +2,6 @@
 
 namespace Andyftw\SSLLabs;
 
-use Guzzle\Http\Client;
-use JMS\Serializer\SerializerBuilder;
-
 /**
  * SSLLabs-PHP.
  * 
@@ -17,22 +14,17 @@ use JMS\Serializer\SerializerBuilder;
  */
 final class Api
 {
-    const API_URL = 'https://api.ssllabs.com/api/v2';
+    /**
+     * @var \Andyftw\SSLLabs\Request
+     */
+    private $request;
 
     /**
-     * @var \GuzzleHttp\Client
+     * Constructor
      */
-    private $client;
-
-    /**
-     * @var \JMS\Serializer\SerializerBuilder
-     */
-    private $serializer;
-
     public function __construct()
     {
-        $this->client = new Client();
-        $this->serializer = SerializerBuilder::create()->build();
+        $this->request = new Request();
     }
 
     /**
@@ -46,7 +38,7 @@ final class Api
      */
     public function info()
     {
-        return $this->json('info', 'Andyftw\SSLLabs\Model\Info');
+        return $this->request->json('info', 'Andyftw\SSLLabs\Model\Info');
     }
 
     /**
@@ -66,7 +58,7 @@ final class Api
      */
     public function analyze($host, $publish = false, $startNew = false, $fromCache = false, $maxAge = null, $all = null, $ignoreMismatch = false)
     {
-        return $this->json(
+        return $this->request->json(
             'analyze',
             'Andyftw\SSLLabs\Model\Host',
             [
@@ -94,7 +86,7 @@ final class Api
      */
     public function getEndpointData($host, $s, $fromCache = false)
     {
-        return $this->json(
+        return $this->request->json(
             'getEndpointData',
             'Andyftw\SSLLabs\Model\Endpoint',
             [
@@ -114,7 +106,7 @@ final class Api
      */
     public function getStatusCodes()
     {
-        return $this->json('getStatusCodes', 'Andyftw\SSLLabs\Model\StatusCodes');
+        return $this->request->json('getStatusCodes', 'Andyftw\SSLLabs\Model\StatusCodes');
     }
 
     /**
@@ -127,45 +119,6 @@ final class Api
      */
     public function getRootCertsRaw()
     {
-        return (string) $this->request('getRootCertsRaw')->getBody();
-    }
-
-    /**
-     * Send request.
-     * 
-     * @param string $call
-     * @param array  $parameters
-     */
-    private function request($call, $parameters = [])
-    {
-        try {
-            return $this->client->get(self::API_URL.'/'.$call, [
-                'query' => array_filter($parameters),
-                'headers' => [
-                    'user-agent' => 'SSLLabs-PHP'
-                ]
-            ]);
-        } catch (\Exception $e) {
-            throw new Exception\ApiException($e->getMessage(), $call);
-        }
-    }
-    
-    /**
-     * Get API response.
-     * 
-     * @param string $call
-     * @param string $type
-     * @param array  $parameters
-     */
-    private function json($call, $type, $parameters = [])
-    {
-        try {
-            $request = $this->request($call, $parameters);
-            $content = (string) $request->send()->getBody();
-
-            return $this->serializer->deserialize($content, $type, 'json');
-        } catch (\Exception $e) {
-            throw new Exception\ApiException($e->getMessage(), $call);
-        }
+        return (string) $this->request->plain('getRootCertsRaw');
     }
 }

@@ -14,10 +14,8 @@ namespace Andyftw\SSLLabs\Model;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
- * Class Simulation
+ * Class Simulation.
  *
- * @access public
- * @package Andyftw\SSLLabs\Model
  *
  * @Serializer\AccessType("public_method")
  */
@@ -36,7 +34,7 @@ class Simulation
     /**
      * Zero if handshake was successful, 1 if it was not.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getErrorCode", setter="setErrorCode")
      * @Serializer\SerializedName("errorCode")
      * @Serializer\Type("integer")
@@ -46,7 +44,7 @@ class Simulation
     /**
      * Always 1 with the current implementation.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getAttempts", setter="setAttempts")
      * @Serializer\SerializedName("attempts")
      * @Serializer\Type("integer")
@@ -56,7 +54,7 @@ class Simulation
     /**
      * Negotiated protocol ID.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getProtocolId", setter="setProtocolId")
      * @Serializer\SerializedName("protocolId")
      * @Serializer\Type("integer")
@@ -66,7 +64,7 @@ class Simulation
     /**
      * Negotiated suite ID.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getSuiteId", setter="setSuiteId")
      * @Serializer\SerializedName("suiteId")
      * @Serializer\Type("integer")
@@ -74,7 +72,7 @@ class Simulation
     private $suiteId;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -105,7 +103,7 @@ class Simulation
     /**
      * Zero if handshake was successful, 1 if it was not.
      *
-     * @return integer
+     * @return int
      */
     public function getErrorCode()
     {
@@ -127,7 +125,7 @@ class Simulation
     /**
      * Always 1 with the current implementation.
      *
-     * @return integer
+     * @return int
      */
     public function getAttempts()
     {
@@ -149,7 +147,7 @@ class Simulation
     /**
      * Negotiated protocol ID.
      *
-     * @return integer
+     * @return int
      */
     public function getProtocolId()
     {
@@ -171,7 +169,7 @@ class Simulation
     /**
      * Negotiated suite ID.
      *
-     * @return integer
+     * @return int
      */
     public function getSuiteId()
     {

@@ -13,7 +13,6 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "guzzlehttp/guzzle": "^v3.8.1",
         "jms/serializer": "^0.16.0"
     },
     "require-dev": {

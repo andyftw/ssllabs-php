@@ -14,10 +14,8 @@ namespace Andyftw\SSLLabs\Model;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
- * Class ChainCert
+ * Class ChainCert.
  *
- * @access public
- * @package Andyftw\SSLLabs\Model
  *
  * @Serializer\AccessType("public_method")
  */
@@ -66,7 +64,7 @@ class ChainCert
     /**
      * A number of flags the describe the problems with this certificate:.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getIssues", setter="setIssues")
      * @Serializer\SerializedName("issues")
      * @Serializer\Type("integer")
@@ -86,7 +84,7 @@ class ChainCert
     /**
      * Key size, in bits appropriate for the key algorithm.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getKeySize", setter="setKeySize")
      * @Serializer\SerializedName("keySize")
      * @Serializer\Type("integer")
@@ -96,7 +94,7 @@ class ChainCert
     /**
      * Key strength, in equivalent RSA bits.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getKeyStrength", setter="setKeyStrength")
      * @Serializer\SerializedName("keyStrength")
      * @Serializer\Type("integer")
@@ -106,7 +104,7 @@ class ChainCert
     /**
      * A number that describes the revocation status of the certificate:.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getRevocationStatus", setter="setRevocationStatus")
      * @Serializer\SerializedName("revocationStatus")
      * @Serializer\Type("integer")
@@ -116,7 +114,7 @@ class ChainCert
     /**
      * Same as revocationStatus, but only for the CRL information (if any).
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getCrlRevocationStatus", setter="setCrlRevocationStatus")
      * @Serializer\SerializedName("crlRevocationStatus")
      * @Serializer\Type("integer")
@@ -126,7 +124,7 @@ class ChainCert
     /**
      * Same as revocationStatus, but only for the OCSP information (if any).
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getOcspRevocationStatus", setter="setOcspRevocationStatus")
      * @Serializer\SerializedName("ocspRevocationStatus")
      * @Serializer\Type("integer")
@@ -144,7 +142,7 @@ class ChainCert
     private $raw;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -241,7 +239,7 @@ class ChainCert
     /**
      * A number of flags the describe the problems with this certificate:.
      *
-     * @return integer
+     * @return int
      */
     public function getIssues()
     {
@@ -285,7 +283,7 @@ class ChainCert
     /**
      * Key size, in bits appropriate for the key algorithm.
      *
-     * @return integer
+     * @return int
      */
     public function getKeySize()
     {
@@ -307,7 +305,7 @@ class ChainCert
     /**
      * Key strength, in equivalent RSA bits.
      *
-     * @return integer
+     * @return int
      */
     public function getKeyStrength()
     {
@@ -329,7 +327,7 @@ class ChainCert
     /**
      * A number that describes the revocation status of the certificate:.
      *
-     * @return integer
+     * @return int
      */
     public function getRevocationStatus()
     {
@@ -351,7 +349,7 @@ class ChainCert
     /**
      * Same as revocationStatus, but only for the CRL information (if any).
      *
-     * @return integer
+     * @return int
      */
     public function getCrlRevocationStatus()
     {
@@ -373,7 +371,7 @@ class ChainCert
     /**
      * Same as revocationStatus, but only for the OCSP information (if any).
      *
-     * @return integer
+     * @return int
      */
     public function getOcspRevocationStatus()
     {

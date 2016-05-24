@@ -14,10 +14,8 @@ namespace Andyftw\SSLLabs\Model;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
- * Class Cert
+ * Class Cert.
  *
- * @access public
- * @package Andyftw\SSLLabs\Model
  *
  * @Serializer\AccessType("public_method")
  */
@@ -56,7 +54,7 @@ class Cert
     /**
      * Timestamp before which the certificate is not valid.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getNotBefore", setter="setNotBefore")
      * @Serializer\SerializedName("notBefore")
      * @Serializer\Type("integer")
@@ -66,7 +64,7 @@ class Cert
     /**
      * Timestamp after which the certificate is not valid.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getNotAfter", setter="setNotAfter")
      * @Serializer\SerializedName("notAfter")
      * @Serializer\Type("integer")
@@ -106,7 +104,7 @@ class Cert
     /**
      * A number that represents revocation information present in the certificate:.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getRevocationInfo", setter="setRevocationInfo")
      * @Serializer\SerializedName("revocationInfo")
      * @Serializer\Type("integer")
@@ -136,7 +134,7 @@ class Cert
     /**
      * A number that describes the revocation status of the certificate:.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getRevocationStatus", setter="setRevocationStatus")
      * @Serializer\SerializedName("revocationStatus")
      * @Serializer\Type("integer")
@@ -146,7 +144,7 @@ class Cert
     /**
      * Same as revocationStatus, but only for the CRL information (if any).
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getCrlRevocationStatus", setter="setCrlRevocationStatus")
      * @Serializer\SerializedName("crlRevocationStatus")
      * @Serializer\Type("integer")
@@ -156,7 +154,7 @@ class Cert
     /**
      * Same as revocationStatus, but only for the OCSP information (if any).
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getOcspRevocationStatus", setter="setOcspRevocationStatus")
      * @Serializer\SerializedName("ocspRevocationStatus")
      * @Serializer\Type("integer")
@@ -166,7 +164,7 @@ class Cert
     /**
      * Server Gated Cryptography support; integer:.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getSgc", setter="setSgc")
      * @Serializer\SerializedName("sgc")
      * @Serializer\Type("integer")
@@ -186,7 +184,7 @@ class Cert
     /**
      * List of certificate issues, one bit per issue:.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getIssues", setter="setIssues")
      * @Serializer\SerializedName("issues")
      * @Serializer\Type("integer")
@@ -196,7 +194,7 @@ class Cert
     /**
      * True if the certificate contains an embedded SCT; false otherwise.
      *
-     * @var boolean
+     * @var bool
      * @Serializer\Accessor(getter="getSct", setter="setSct")
      * @Serializer\SerializedName("sct")
      * @Serializer\Type("boolean")
@@ -204,7 +202,7 @@ class Cert
     private $sct;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -279,7 +277,7 @@ class Cert
     /**
      * Timestamp before which the certificate is not valid.
      *
-     * @return integer
+     * @return int
      */
     public function getNotBefore()
     {
@@ -301,7 +299,7 @@ class Cert
     /**
      * Timestamp after which the certificate is not valid.
      *
-     * @return integer
+     * @return int
      */
     public function getNotAfter()
     {
@@ -389,7 +387,7 @@ class Cert
     /**
      * A number that represents revocation information present in the certificate:.
      *
-     * @return integer
+     * @return int
      */
     public function getRevocationInfo()
     {
@@ -455,7 +453,7 @@ class Cert
     /**
      * A number that describes the revocation status of the certificate:.
      *
-     * @return integer
+     * @return int
      */
     public function getRevocationStatus()
     {
@@ -477,7 +475,7 @@ class Cert
     /**
      * Same as revocationStatus, but only for the CRL information (if any).
      *
-     * @return integer
+     * @return int
      */
     public function getCrlRevocationStatus()
     {
@@ -499,7 +497,7 @@ class Cert
     /**
      * Same as revocationStatus, but only for the OCSP information (if any).
      *
-     * @return integer
+     * @return int
      */
     public function getOcspRevocationStatus()
     {
@@ -521,7 +519,7 @@ class Cert
     /**
      * Server Gated Cryptography support; integer:.
      *
-     * @return integer
+     * @return int
      */
     public function getSgc()
     {
@@ -565,7 +563,7 @@ class Cert
     /**
      * List of certificate issues, one bit per issue:.
      *
-     * @return integer
+     * @return int
      */
     public function getIssues()
     {
@@ -587,7 +585,7 @@ class Cert
     /**
      * True if the certificate contains an embedded SCT; false otherwise.
      *
-     * @return boolean
+     * @return bool
      */
     public function getSct()
     {

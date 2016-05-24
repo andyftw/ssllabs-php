@@ -14,10 +14,8 @@ namespace Andyftw\SSLLabs\Model;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
- * Class SimDetails
+ * Class SimDetails.
  *
- * @access public
- * @package Andyftw\SSLLabs\Model
  *
  * @Serializer\AccessType("public_method")
  */
@@ -34,7 +32,7 @@ class SimDetails
     private $results;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {

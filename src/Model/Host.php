@@ -14,10 +14,8 @@ namespace Andyftw\SSLLabs\Model;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
- * Class Host
+ * Class Host.
  *
- * @access public
- * @package Andyftw\SSLLabs\Model
  *
  * @Serializer\AccessType("public_method")
  */
@@ -36,7 +34,7 @@ class Host
     /**
      * Assessment port (e.g., 443).
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getPort", setter="setPort")
      * @Serializer\SerializedName("port")
      * @Serializer\Type("integer")
@@ -56,7 +54,7 @@ class Host
     /**
      * True if this assessment is publicly available (listed on the SSL Labs assessment boards).
      *
-     * @var boolean
+     * @var bool
      * @Serializer\Accessor(getter="getIsPublic", setter="setIsPublic")
      * @Serializer\SerializedName("isPublic")
      * @Serializer\Type("boolean")
@@ -86,7 +84,7 @@ class Host
     /**
      * Assessment starting time, in milliseconds since 1970.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getStartTime", setter="setStartTime")
      * @Serializer\SerializedName("startTime")
      * @Serializer\Type("integer")
@@ -96,7 +94,7 @@ class Host
     /**
      * Assessment completion time, in milliseconds since 1970.
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getTestTime", setter="setTestTime")
      * @Serializer\SerializedName("testTime")
      * @Serializer\Type("integer")
@@ -127,7 +125,7 @@ class Host
      * When will the assessment results expire from the cache (typically set only for assessment with errors;
      * otherwise the results stay in the cache for as long as there's sufficient room).
      *
-     * @var integer
+     * @var int
      * @Serializer\Accessor(getter="getCacheExpiryTime", setter="setCacheExpiryTime")
      * @Serializer\SerializedName("cacheExpiryTime")
      * @Serializer\Type("integer")
@@ -158,7 +156,7 @@ class Host
     private $certHostnames;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -189,7 +187,7 @@ class Host
     /**
      * Assessment port (e.g., 443).
      *
-     * @return integer
+     * @return int
      */
     public function getPort()
     {
@@ -233,7 +231,7 @@ class Host
     /**
      * True if this assessment is publicly available (listed on the SSL Labs assessment boards).
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsPublic()
     {
@@ -299,7 +297,7 @@ class Host
     /**
      * Assessment starting time, in milliseconds since 1970.
      *
-     * @return integer
+     * @return int
      */
     public function getStartTime()
     {
@@ -321,7 +319,7 @@ class Host
     /**
      * Assessment completion time, in milliseconds since 1970.
      *
-     * @return integer
+     * @return int
      */
     public function getTestTime()
     {
@@ -388,7 +386,7 @@ class Host
      * When will the assessment results expire from the cache (typically set only for assessment with errors;
      * otherwise the results stay in the cache for as long as there's sufficient room).
      *
-     * @return integer
+     * @return int
      */
     public function getCacheExpiryTime()
     {
