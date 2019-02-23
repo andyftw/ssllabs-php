@@ -21,6 +21,20 @@ try {
 }
 
 ```
+
+## Register annotation handler
+
+Adding the following line should solve the [problem](https://github.com/symfony/symfony/issues/25555)
+
+```PHP
+require_once 'vendor/autoload.php';
+```
+
+```PHP
+$loader = require_once 'vendor/autoload.php';
+AnnotationRegistry::registerLoader(array($loader, "loadClass"));
+```
+
 ## Methods
 ### info()
 [Check SSL Labs availability](https://github.com/ssllabs/ssllabs-scan/blob/stable/ssllabs-api-docs.md#info)
